@@ -15,6 +15,7 @@ python scripts/analyze_v3.py              # 合格率 + 聚类 bootstrap + ICC +
 python scripts/run_rewrite_loop.py B,C    # 定向重写闭环
 python scripts/report_rewrite.py          # → eval/rewrite_loop.md
 python scripts/report_retest.py           # → eval/retest.md
+python scripts/report_triage.py          # 自动/人工分流 → eval/triage.md
 python scripts/analyze.py > /dev/null     # 第一轮对照表 → eval/results.md
 python scripts/build_html.py              # 标注页 + 浏览器
 echo "完成：见 eval/results_v3.md、eval/agreement.md、eval/rewrite_loop.md、viewer/index.html"
