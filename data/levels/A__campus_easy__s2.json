@@ -1,0 +1,53 @@
+{
+ "level_id": "A__campus_easy__s2",
+ "arm": "A",
+ "sample": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v1",
+ "spec": {
+  "spec_id": "campus_easy",
+  "theme": "校园日常",
+  "theme_hint": "社团、考试、友情、小误会",
+  "difficulty": "简单",
+  "difficulty_def": "新手友好：3个选项中至少2个能推进（成功或部分成功），失败代价轻、可重试，线索明显。",
+  "persona": "10岁小学生",
+  "persona_desc": "阅读能力有限，内容必须适龄：无血腥、无恐怖描写过度、用词简单",
+  "persona_id": "kid",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "{\n  \"title\": \"寻找遗失的书包\",\n  \"scene\": \"在一个阳光明媚的下午，小明在操场上踢足球，突然发现自己的书包不见了。他四处寻找，但没有找到。书包里有很多重要的作业和文件，他必须尽快找回书包。\",\n  \"goal\": \"帮助小明找到遗失的书包。\",\n  \"choices\": [\n    {\n      \"id\": \"A\",\n      \"text\": \"询问老师和同学\",\n      \"outcome\": \"小明跑去找老师和同学们帮忙寻找书包，大家一起在校园里搜寻。\",\n      \"result\": \"partial\",\n      \"next\": \"retry\"\n    },\n    {\n      \"id\": \"B\",\n      \"text\": \"自己再仔细找一遍\",\n      \"outcome\": \"小明回到原地，耐心地在每个角落再次仔细寻找书包。\",\n      \"result\": \"partial\",\n      \"next\": \"retry\"\n    },\n    {\n      \"id\": \"C\",\n      \"text\": \"放弃寻找\",\n      \"outcome\": \"小明觉得找了这么久还没有找到，感到有些沮丧，选择先放弃寻找书包。\",\n      \"result\": \"fail\",\n      \"next\": \"bad_end\"\n    }\n  ]\n}",
+ "level": {
+  "title": "寻找遗失的书包",
+  "scene": "在一个阳光明媚的下午，小明在操场上踢足球，突然发现自己的书包不见了。他四处寻找，但没有找到。书包里有很多重要的作业和文件，他必须尽快找回书包。",
+  "goal": "帮助小明找到遗失的书包。",
+  "choices": [
+   {
+    "id": "A",
+    "text": "询问老师和同学",
+    "outcome": "小明跑去找老师和同学们帮忙寻找书包，大家一起在校园里搜寻。",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "B",
+    "text": "自己再仔细找一遍",
+    "outcome": "小明回到原地，耐心地在每个角落再次仔细寻找书包。",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "C",
+    "text": "放弃寻找",
+    "outcome": "小明觉得找了这么久还没有找到，感到有些沮丧，选择先放弃寻找书包。",
+    "result": "fail",
+    "next": "bad_end"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 147,
+  "completion_tokens": 261,
+  "latency_s": 7.04
+ }
+}

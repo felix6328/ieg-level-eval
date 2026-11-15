@@ -1,0 +1,53 @@
+{
+ "level_id": "A__space_normal__s2",
+ "arm": "A",
+ "sample": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v1",
+ "spec": {
+  "spec_id": "space_normal",
+  "theme": "太空求生",
+  "theme_hint": "飞船故障、氧气、未知信号",
+  "difficulty": "普通",
+  "difficulty_def": "需要读懂场景线索：恰好1个最优解、1个部分成功（有代价）、1个失败但可重试。",
+  "persona": "硬核解谜党",
+  "persona_desc": "喜欢推理和机关，讨厌一眼看穿的选项，重视逻辑严密",
+  "persona_id": "hardcore",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "```json\n{\n  \"title\": \"修复生命支持系统\",\n  \"scene\": \"你在一个小行星矿场上醒来，四周是冰冷的金属墙壁和闪烁着红绿灯的控制面板。生命支持系统的警报声不断响起，你的空气供应正迅速减少。你必须尽快找到并修复生命支持系统，否则你将无法在太空站中生存下去。\",\n  \"goal\": \"找到并修复生命支持系统\",\n  \"choices\": [\n    {\n      \"id\": \"A\",\n      \"text\": \"检查主控室\",\n      \"outcome\": \"主控室的控制面板上显示着生命支持系统的一些关键数据，但并未显示出明显的故障。\",\n      \"result\": \"partial\",\n      \"next\": \"retry\"\n    },\n    {\n      \"id\": \"B\",\n      \"text\": \"去维修舱室查看\",\n      \"outcome\": \"维修舱室里有一些工具和备用零件，但没有直接解决生命支持系统的故障。\",\n      \"result\": \"partial\",\n      \"next\": \"retry\"\n    },\n    {\n      \"id\": \"C\",\n      \"text\": \"询问其他机组成员\",\n      \"outcome\": \"通过无线电联系到了另一名机组成员，他告诉你最近有个电子维修机器人在进行维护，生命支持系统的故障可能与它有关。\",\n      \"result\": \"success\",\n      \"next\": \"next_level\"\n    }\n  ]\n}\n```",
+ "level": {
+  "title": "修复生命支持系统",
+  "scene": "你在一个小行星矿场上醒来，四周是冰冷的金属墙壁和闪烁着红绿灯的控制面板。生命支持系统的警报声不断响起，你的空气供应正迅速减少。你必须尽快找到并修复生命支持系统，否则你将无法在太空站中生存下去。",
+  "goal": "找到并修复生命支持系统",
+  "choices": [
+   {
+    "id": "A",
+    "text": "检查主控室",
+    "outcome": "主控室的控制面板上显示着生命支持系统的一些关键数据，但并未显示出明显的故障。",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "B",
+    "text": "去维修舱室查看",
+    "outcome": "维修舱室里有一些工具和备用零件，但没有直接解决生命支持系统的故障。",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "C",
+    "text": "询问其他机组成员",
+    "outcome": "通过无线电联系到了另一名机组成员，他告诉你最近有个电子维修机器人在进行维护，生命支持系统的故障可能与它有关。",
+    "result": "success",
+    "next": "next_level"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 149,
+  "completion_tokens": 293,
+  "latency_s": 11.44
+ }
+}

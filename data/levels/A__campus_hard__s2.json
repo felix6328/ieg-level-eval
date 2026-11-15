@@ -1,0 +1,53 @@
+{
+ "level_id": "A__campus_hard__s2",
+ "arm": "A",
+ "sample": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v1",
+ "spec": {
+  "spec_id": "campus_hard",
+  "theme": "校园日常",
+  "theme_hint": "社团、考试、友情、小误会",
+  "difficulty": "困难",
+  "difficulty_def": "线索隐蔽且需要推理或资源权衡：最优解不显眼，至少1个看似合理的陷阱选项，失败有实质代价但不能是无提示的秒死。",
+  "persona": "硬核解谜党",
+  "persona_desc": "喜欢推理和机关，讨厌一眼看穿的选项，重视逻辑严密",
+  "persona_id": "hardcore",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "{\n  \"title\": \"图书馆的秘密\",\n  \"scene\": \"你是一名充满好奇心的高中生，今天偶然发现学校图书馆的后门上有一个奇怪的锁，上面刻着一些看似无意义的符号。图书馆管理员似乎对这个锁避而不谈，你决定深入调查。\",\n  \"goal\": \"解开锁上的符号密码，进入图书馆的后门，找到隐藏的资料。\",\n  \"choices\": [\n    {\n      \"id\": \"A\",\n      \"text\": \"查看图书馆公告栏上的谜题\",\n      \"outcome\": \"公告栏上有一张贴纸，上面写着：‘观察周围，寻找线索。’\",\n      \"result\": \"partial\",\n      \"next\": \"retry\"\n    },\n    {\n      \"id\": \"B\",\n      \"text\": \"询问周围的同学是否有线索\",\n      \"outcome\": \"一名同学告诉你，最近有人在图书馆的角落里放置了奇怪的棋子。\",\n      \"result\": \"partial\",\n      \"next\": \"retry\"\n    },\n    {\n      \"id\": \"C\",\n      \"text\": \"检查书架上的书籍，寻找线索\",\n      \"outcome\": \"书架上有一本古籍，书中夹着一张折好的纸条，上面写着：‘暗中寻找，光明揭示。’\",\n      \"result\": \"partial\",\n      \"next\": \"retry\"\n    }\n  ]\n}",
+ "level": {
+  "title": "图书馆的秘密",
+  "scene": "你是一名充满好奇心的高中生，今天偶然发现学校图书馆的后门上有一个奇怪的锁，上面刻着一些看似无意义的符号。图书馆管理员似乎对这个锁避而不谈，你决定深入调查。",
+  "goal": "解开锁上的符号密码，进入图书馆的后门，找到隐藏的资料。",
+  "choices": [
+   {
+    "id": "A",
+    "text": "查看图书馆公告栏上的谜题",
+    "outcome": "公告栏上有一张贴纸，上面写着：‘观察周围，寻找线索。’",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "B",
+    "text": "询问周围的同学是否有线索",
+    "outcome": "一名同学告诉你，最近有人在图书馆的角落里放置了奇怪的棋子。",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "C",
+    "text": "检查书架上的书籍，寻找线索",
+    "outcome": "书架上有一本古籍，书中夹着一张折好的纸条，上面写着：‘暗中寻找，光明揭示。’",
+    "result": "partial",
+    "next": "retry"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 148,
+  "completion_tokens": 286,
+  "latency_s": 8.92
+ }
+}

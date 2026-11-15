@@ -1,0 +1,53 @@
+{
+ "level_id": "A__cyber_easy__s2",
+ "arm": "A",
+ "sample": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v1",
+ "spec": {
+  "spec_id": "cyber_easy",
+  "theme": "赛博朋克都市",
+  "theme_hint": "霓虹、义体、黑客、巨型企业",
+  "difficulty": "简单",
+  "difficulty_def": "新手友好：3个选项中至少2个能推进（成功或部分成功），失败代价轻、可重试，线索明显。",
+  "persona": "硬核解谜党",
+  "persona_desc": "喜欢推理和机关，讨厌一眼看穿的选项，重视逻辑严密",
+  "persona_id": "hardcore",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "{\n  \"title\": \"隐秘通道\",\n  \"scene\": \"你站在灯火通明的赛博朋克都市街头，霓虹灯闪烁，街道上人来人往。你面前有两个看似普通的门，一个红色，一个蓝色。旁边还有一块电子显示器，上面显示着密密麻麻的代码。你被告知这扇门中的某一个隐藏着通往下一个目的地的秘密通道。\",\n  \"goal\": \"找到隐藏的秘密通道，继续前进。\",\n  \"choices\": [\n    {\n      \"id\": \"A\",\n      \"text\": \"打开红色的门\",\n      \"outcome\": \"门后是一片漆黑，什么也没有。\",\n      \"result\": \"fail\",\n      \"next\": \"retry\"\n    },\n    {\n      \"id\": \"B\",\n      \"text\": \"打开蓝色的门\",\n      \"outcome\": \"门后是一条隐秘的地下通道，通向下一个目的地。\",\n      \"result\": \"success\",\n      \"next\": \"next_level\"\n    },\n    {\n      \"id\": \"C\",\n      \"text\": \"观察电子显示器上的代码\",\n      \"outcome\": \"你注意到一个闪动的数字序列，但不确定它是否与门有关。最终你选择了一个门，但并未打开。\",\n      \"result\": \"partial\",\n      \"next\": \"retry\"\n    }\n  ]\n}",
+ "level": {
+  "title": "隐秘通道",
+  "scene": "你站在灯火通明的赛博朋克都市街头，霓虹灯闪烁，街道上人来人往。你面前有两个看似普通的门，一个红色，一个蓝色。旁边还有一块电子显示器，上面显示着密密麻麻的代码。你被告知这扇门中的某一个隐藏着通往下一个目的地的秘密通道。",
+  "goal": "找到隐藏的秘密通道，继续前进。",
+  "choices": [
+   {
+    "id": "A",
+    "text": "打开红色的门",
+    "outcome": "门后是一片漆黑，什么也没有。",
+    "result": "fail",
+    "next": "retry"
+   },
+   {
+    "id": "B",
+    "text": "打开蓝色的门",
+    "outcome": "门后是一条隐秘的地下通道，通向下一个目的地。",
+    "result": "success",
+    "next": "next_level"
+   },
+   {
+    "id": "C",
+    "text": "观察电子显示器上的代码",
+    "outcome": "你注意到一个闪动的数字序列，但不确定它是否与门有关。最终你选择了一个门，但并未打开。",
+    "result": "partial",
+    "next": "retry"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 151,
+  "completion_tokens": 282,
+  "latency_s": 7.5
+ }
+}

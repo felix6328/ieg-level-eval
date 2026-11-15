@@ -1,0 +1,54 @@
+{
+ "level_id": "B__space_easy__s2",
+ "arm": "B",
+ "sample": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v2",
+ "spec": {
+  "spec_id": "space_easy",
+  "theme": "太空求生",
+  "theme_hint": "飞船故障、氧气、未知信号",
+  "difficulty": "简单",
+  "difficulty_def": "新手友好：3个选项中至少2个能推进（成功或部分成功），失败代价轻、可重试，线索明显。",
+  "persona": "休闲剧情党",
+  "persona_desc": "碎片时间玩，想要好读的故事和情绪反馈，讨厌复杂规则",
+  "persona_id": "casual",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "{\n  \"title\": \"重启通讯\",\n  \"scene\": \"飞船的通讯系统突然故障了，显示器上一片漆黑，但你隐约记得以前学过维修手册上有相关内容。现在，你需要修复它，才能联系到地面控制中心。你面前有三个操作面板，分别标着红色、蓝色和黄色标签。\",\n  \"goal\": \"修复通讯系统，尽快联系地面。\",\n  \"clue\": \"红色面板的操作手册里有关键提示。\",\n  \"choices\": [\n    {\"id\": \"A\", \"text\": \"查看红色面板\", \"outcome\": \"你发现操作手册中提到，红色面板是关键，上面有一个开关需要打开，将飞船设置为紧急模式。\", \"result\": \"success\", \"next\": \"next_level\"},\n    {\"id\": \"B\", \"text\": \"尝试启动蓝色面板\", \"outcome\": \"蓝色面板上没有你需要的东西，只是几个闪烁的灯光，没有起到任何作用。\", \"result\": \"partial\", \"next\": \"retry\"},\n    {\"id\": \"C\", \"text\": \"检查黄色面板\", \"outcome\": \"黄色面板上是一些无用的按钮和指示灯，不起任何作用。\", \"result\": \"fail\", \"next\": \"retry\"}\n  ]\n}",
+ "level": {
+  "title": "重启通讯",
+  "scene": "飞船的通讯系统突然故障了，显示器上一片漆黑，但你隐约记得以前学过维修手册上有相关内容。现在，你需要修复它，才能联系到地面控制中心。你面前有三个操作面板，分别标着红色、蓝色和黄色标签。",
+  "goal": "修复通讯系统，尽快联系地面。",
+  "clue": "红色面板的操作手册里有关键提示。",
+  "choices": [
+   {
+    "id": "A",
+    "text": "查看红色面板",
+    "outcome": "你发现操作手册中提到，红色面板是关键，上面有一个开关需要打开，将飞船设置为紧急模式。",
+    "result": "success",
+    "next": "next_level"
+   },
+   {
+    "id": "B",
+    "text": "尝试启动蓝色面板",
+    "outcome": "蓝色面板上没有你需要的东西，只是几个闪烁的灯光，没有起到任何作用。",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "C",
+    "text": "检查黄色面板",
+    "outcome": "黄色面板上是一些无用的按钮和指示灯，不起任何作用。",
+    "result": "fail",
+    "next": "retry"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 693,
+  "completion_tokens": 264,
+  "latency_s": 11.1
+ }
+}

@@ -1,0 +1,59 @@
+{
+ "level_id": "B__myth_normal__s1__rw1",
+ "arm": "B+rw",
+ "base_level_id": "B__myth_normal__s1",
+ "sample": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "v2+rewrite",
+ "spec": {
+  "spec_id": "myth_normal",
+  "theme": "山海经神话",
+  "theme_hint": "异兽、上古神器、部落",
+  "difficulty": "普通",
+  "difficulty_def": "需要读懂场景线索：恰好1个最优解、1个部分成功（有代价）、1个失败但可重试。",
+  "persona": "探索收集党",
+  "persona_desc": "喜欢发现隐藏信息、彩蛋和世界观细节",
+  "persona_id": "explorer",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "{\n  \"title\": \"迷雾之谷\",\n  \"scene\": \"你站在一片浓雾缭绕的山谷中，四周回荡着奇异的鸟鸣声。山谷中央有一座石碑，碑上刻着一首古文，隐约可见模糊的字迹。你向前方的两个方向望去，一个方向隐约可见一条小溪流过，另一个方向则是一片茂密的树林。\",\n  \"goal\": \"找到通往山海秘境的入口。\",\n  \"clue\": \"石碑上的古文含有线索。\",\n  \"choices\": [\n    {\"id\": \"A\", \"text\": \"去小溪边寻找线索\", \"outcome\": \"小溪边找到一张古老的地图碎片，但地图上其他标记模糊不清。\", \"result\": \"partial\", \"next\": \"retry\"},\n    {\"id\": \"B\", \"text\": \"穿过树林探索\", \"outcome\": \"树林里发现一些奇异的脚印，但没有找到任何有用的物品。\", \"result\": \"retry\", \"next\": \"retry\"},\n    {\"id\": \"C\", \"text\": \"仔细阅读石碑上的古文\", \"outcome\": \"石碑上的古文揭示了‘雾中有秘境’的秘密，指引你前往迷雾中心找寻真正的入口。你感到一阵突如其来的凉意，周围雾气更加浓重，似乎预示着前方的挑战。\", \"result\": \"success\", \"next\": \"next_level\"}\n  ]\n}",
+ "level": {
+  "title": "迷雾之谷",
+  "scene": "你站在一片浓雾缭绕的山谷中，四周回荡着奇异的鸟鸣声。山谷中央有一座石碑，碑上刻着一首古文，隐约可见模糊的字迹。你向前方的两个方向望去，一个方向隐约可见一条小溪流过，另一个方向则是一片茂密的树林。",
+  "goal": "找到通往山海秘境的入口。",
+  "clue": "石碑上的古文含有线索。",
+  "choices": [
+   {
+    "id": "A",
+    "text": "去小溪边寻找线索",
+    "outcome": "小溪边找到一张古老的地图碎片，但地图上其他标记模糊不清。",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "B",
+    "text": "穿过树林探索",
+    "outcome": "树林里发现一些奇异的脚印，但没有找到任何有用的物品。",
+    "result": "retry",
+    "next": "retry"
+   },
+   {
+    "id": "C",
+    "text": "仔细阅读石碑上的古文",
+    "outcome": "石碑上的古文揭示了‘雾中有秘境’的秘密，指引你前往迷雾中心找寻真正的入口。你感到一阵突如其来的凉意，周围雾气更加浓重，似乎预示着前方的挑战。",
+    "result": "success",
+    "next": "next_level"
+   }
+  ]
+ },
+ "feedback": [
+  "result 分布必须符合难度定义",
+  "[F3] 让至少一个结果有情绪回报或意外"
+ ],
+ "usage": {
+  "prompt_tokens": 1063,
+  "completion_tokens": 309,
+  "latency_s": 13.38
+ }
+}

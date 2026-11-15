@@ -1,0 +1,52 @@
+{
+ "level_id": "A__cyber_easy",
+ "arm": "A",
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v1",
+ "spec": {
+  "spec_id": "cyber_easy",
+  "theme": "赛博朋克都市",
+  "theme_hint": "霓虹、义体、黑客、巨型企业",
+  "difficulty": "简单",
+  "difficulty_def": "新手友好：3个选项中至少2个能推进（成功或部分成功），失败代价轻、可重试，线索明显。",
+  "persona": "硬核解谜党",
+  "persona_desc": "喜欢推理和机关，讨厌一眼看穿的选项，重视逻辑严密",
+  "persona_id": "hardcore",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "{\n  \"title\": \"数据失窃\",\n  \"scene\": \"你站在熟悉的赛博朋克都市的街头，霓虹闪烁，信息流如河流般奔涌。你的任务是从被黑客入侵的服务器中找回被盗的机密数据。周围是一排排自动售卖机和广告牌，还有机械臂在空中修理着自己的破损部分。\",\n  \"goal\": \"成功从黑客控制的服务器中找回被盗的数据。\",\n  \"choices\": [\n    {\n      \"id\": \"A\",\n      \"text\": \"在街头寻找线索\",\n      \"outcome\": \"你发现一个疑似黑客留下的加密信息。\",\n      \"result\": \"partial\",\n      \"next\": \"retry\"\n    },\n    {\n      \"id\": \"B\",\n      \"text\": \"使用黑客工具破解服务器\",\n      \"outcome\": \"直接破解服务器，顺利找到被盗数据。\",\n      \"result\": \"success\",\n      \"next\": \"next_level\"\n    },\n    {\n      \"id\": \"C\",\n      \"text\": \"查看周围街坊的聊天记录\",\n      \"outcome\": \"没有找到有用的线索，但耗去了宝贵的时间。\",\n      \"result\": \"fail\",\n      \"next\": \"retry\"\n    }\n  ]\n}",
+ "level": {
+  "title": "数据失窃",
+  "scene": "你站在熟悉的赛博朋克都市的街头，霓虹闪烁，信息流如河流般奔涌。你的任务是从被黑客入侵的服务器中找回被盗的机密数据。周围是一排排自动售卖机和广告牌，还有机械臂在空中修理着自己的破损部分。",
+  "goal": "成功从黑客控制的服务器中找回被盗的数据。",
+  "choices": [
+   {
+    "id": "A",
+    "text": "在街头寻找线索",
+    "outcome": "你发现一个疑似黑客留下的加密信息。",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "B",
+    "text": "使用黑客工具破解服务器",
+    "outcome": "直接破解服务器，顺利找到被盗数据。",
+    "result": "success",
+    "next": "next_level"
+   },
+   {
+    "id": "C",
+    "text": "查看周围街坊的聊天记录",
+    "outcome": "没有找到有用的线索，但耗去了宝贵的时间。",
+    "result": "fail",
+    "next": "retry"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 151,
+  "completion_tokens": 255,
+  "latency_s": 10.42
+ }
+}

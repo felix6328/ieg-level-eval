@@ -1,0 +1,54 @@
+{
+ "level_id": "B__space_normal__s1",
+ "arm": "B",
+ "sample": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v2",
+ "spec": {
+  "spec_id": "space_normal",
+  "theme": "太空求生",
+  "theme_hint": "飞船故障、氧气、未知信号",
+  "difficulty": "普通",
+  "difficulty_def": "需要读懂场景线索：恰好1个最优解、1个部分成功（有代价）、1个失败但可重试。",
+  "persona": "硬核解谜党",
+  "persona_desc": "喜欢推理和机关，讨厌一眼看穿的选项，重视逻辑严密",
+  "persona_id": "hardcore",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "{\n  \"title\": \"修复通讯\",\n  \"scene\": \"飞船内部，氧气供应降至预警状态。面板上的灯光闪烁不定，其中一枚指示灯显示未知信号源的方向。你得在有限时间内修复通讯设备，否则将无法联系外界求援。\",\n  \"goal\": \"修复飞船的通讯设备。\",\n  \"clue\": \"未知信号源方向指示灯。\",\n  \"choices\": [\n    {\n      \"id\": \"A\",\n      \"text\": \"检查未知信号源方向的指示灯\",\n      \"outcome\": \"发现信号源似乎由一台老旧计算机控制，但计算机无法运行。你需要解决计算机问题才能进一步行动。\",\n      \"result\": \"partial\",\n      \"next\": \"retry\"\n    },\n    {\n      \"id\": \"B\",\n      \"text\": \"尝试重启整个通讯系统\",\n      \"outcome\": \"重启未果，系统提示需要输入特定的代码才能继续，但你没找到相关的密码。\",\n      \"result\": \"fail\",\n      \"next\": \"retry\"\n    },\n    {\n      \"id\": \"C\",\n      \"text\": \"查阅维修手册寻找故障原因\",\n      \"outcome\": \"根据手册，你发现计算机上的一个关键电路板受损，拆解设备并更换电路板后，通讯设备成功修复。\",\n      \"result\": \"success\",\n      \"next\": \"next_level\"\n    }\n  ]\n}",
+ "level": {
+  "title": "修复通讯",
+  "scene": "飞船内部，氧气供应降至预警状态。面板上的灯光闪烁不定，其中一枚指示灯显示未知信号源的方向。你得在有限时间内修复通讯设备，否则将无法联系外界求援。",
+  "goal": "修复飞船的通讯设备。",
+  "clue": "未知信号源方向指示灯。",
+  "choices": [
+   {
+    "id": "A",
+    "text": "检查未知信号源方向的指示灯",
+    "outcome": "发现信号源似乎由一台老旧计算机控制，但计算机无法运行。你需要解决计算机问题才能进一步行动。",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "B",
+    "text": "尝试重启整个通讯系统",
+    "outcome": "重启未果，系统提示需要输入特定的代码才能继续，但你没找到相关的密码。",
+    "result": "fail",
+    "next": "retry"
+   },
+   {
+    "id": "C",
+    "text": "查阅维修手册寻找故障原因",
+    "outcome": "根据手册，你发现计算机上的一个关键电路板受损，拆解设备并更换电路板后，通讯设备成功修复。",
+    "result": "success",
+    "next": "next_level"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 693,
+  "completion_tokens": 287,
+  "latency_s": 8.85
+ }
+}

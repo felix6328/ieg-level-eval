@@ -1,0 +1,53 @@
+{
+ "level_id": "B__myth_normal",
+ "arm": "B",
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v2",
+ "spec": {
+  "spec_id": "myth_normal",
+  "theme": "山海经神话",
+  "theme_hint": "异兽、上古神器、部落",
+  "difficulty": "普通",
+  "difficulty_def": "需要读懂场景线索：恰好1个最优解、1个部分成功（有代价）、1个失败但可重试。",
+  "persona": "探索收集党",
+  "persona_desc": "喜欢发现隐藏信息、彩蛋和世界观细节",
+  "persona_id": "explorer",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "{\n  \"title\": \"迷雾森林\",\n  \"scene\": \"你站在幽暗的迷雾森林入口，四处弥漫着一股奇异的雾气。森林中央隐约可见一座古老的石碑，上面刻着陌生的符号。周围密林中传来低沉的吼声，似乎有什么东西在窥视。你必须选择一个方向前行，希望不要触动什么不该触碰的事物。\",\n  \"goal\": \"寻找到达山海经神话世界深处的入口\",\n  \"clue\": \"石碑上的符号、低沉的吼声\",\n  \"choices\": [\n    {\"id\": \"A\", \"text\": \"靠近石碑并仔细研究\", \"outcome\": \"石碑上浮现一道光芒，指引了通往幽暗森林深处的路。\", \"result\": \"success\", \"next\": \"next_level\"},\n    {\"id\": \"B\", \"text\": \"走进森林深处，追查吼声来源\", \"outcome\": \"你发现了一只沉睡的异兽，但它并未攻击你。你获得了一块罕见的上古兽皮。\", \"result\": \"partial\", \"next\": \"retry\"},\n    {\"id\": \"C\", \"text\": \"避开森林，寻找其他路径\", \"outcome\": \"你绕过森林，却陷入了更加浓密的迷雾中，迷失了方向。\", \"result\": \"fail\", \"next\": \"retry\"}\n  ]\n}",
+ "level": {
+  "title": "迷雾森林",
+  "scene": "你站在幽暗的迷雾森林入口，四处弥漫着一股奇异的雾气。森林中央隐约可见一座古老的石碑，上面刻着陌生的符号。周围密林中传来低沉的吼声，似乎有什么东西在窥视。你必须选择一个方向前行，希望不要触动什么不该触碰的事物。",
+  "goal": "寻找到达山海经神话世界深处的入口",
+  "clue": "石碑上的符号、低沉的吼声",
+  "choices": [
+   {
+    "id": "A",
+    "text": "靠近石碑并仔细研究",
+    "outcome": "石碑上浮现一道光芒，指引了通往幽暗森林深处的路。",
+    "result": "success",
+    "next": "next_level"
+   },
+   {
+    "id": "B",
+    "text": "走进森林深处，追查吼声来源",
+    "outcome": "你发现了一只沉睡的异兽，但它并未攻击你。你获得了一块罕见的上古兽皮。",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "C",
+    "text": "避开森林，寻找其他路径",
+    "outcome": "你绕过森林，却陷入了更加浓密的迷雾中，迷失了方向。",
+    "result": "fail",
+    "next": "retry"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 688,
+  "completion_tokens": 298,
+  "latency_s": 13.06
+ }
+}

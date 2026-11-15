@@ -1,0 +1,52 @@
+{
+ "level_id": "A__space_easy",
+ "arm": "A",
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v1",
+ "spec": {
+  "spec_id": "space_easy",
+  "theme": "太空求生",
+  "theme_hint": "飞船故障、氧气、未知信号",
+  "difficulty": "简单",
+  "difficulty_def": "新手友好：3个选项中至少2个能推进（成功或部分成功），失败代价轻、可重试，线索明显。",
+  "persona": "休闲剧情党",
+  "persona_desc": "碎片时间玩，想要好读的故事和情绪反馈，讨厌复杂规则",
+  "persona_id": "casual",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "```json\n{\n  \"title\": \"逃离太空站\",\n  \"scene\": \"你成功地从即将解体的太空站中脱险，现在你需要找到一艘可以带你回家的飞船。你所在的区域有三艘飞船，但它们的状态各不相同。\",\n  \"goal\": \"找到一艘可以带你回家的飞船。\",\n  \"choices\": [\n    {\n      \"id\": \"A\",\n      \"text\": \"检查第一艘飞船\",\n      \"outcome\": \"飞船外壳严重损坏，无法启动。\",\n      \"result\": \"fail\",\n      \"next\": \"retry\"\n    },\n    {\n      \"id\": \"B\",\n      \"text\": \"检查第二艘飞船\",\n      \"outcome\": \"飞船内部有轻微损坏，但看起来可以修复。\",\n      \"result\": \"partial\",\n      \"next\": \"repair_ship\"\n    },\n    {\n      \"id\": \"C\",\n      \"text\": \"检查第三艘飞船\",\n      \"outcome\": \"这艘飞船完好无损，可以直接使用。\",\n      \"result\": \"success\",\n      \"next\": \"next_level\"\n    }\n  ]\n}\n```",
+ "level": {
+  "title": "逃离太空站",
+  "scene": "你成功地从即将解体的太空站中脱险，现在你需要找到一艘可以带你回家的飞船。你所在的区域有三艘飞船，但它们的状态各不相同。",
+  "goal": "找到一艘可以带你回家的飞船。",
+  "choices": [
+   {
+    "id": "A",
+    "text": "检查第一艘飞船",
+    "outcome": "飞船外壳严重损坏，无法启动。",
+    "result": "fail",
+    "next": "retry"
+   },
+   {
+    "id": "B",
+    "text": "检查第二艘飞船",
+    "outcome": "飞船内部有轻微损坏，但看起来可以修复。",
+    "result": "partial",
+    "next": "repair_ship"
+   },
+   {
+    "id": "C",
+    "text": "检查第三艘飞船",
+    "outcome": "这艘飞船完好无损，可以直接使用。",
+    "result": "success",
+    "next": "next_level"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 147,
+  "completion_tokens": 230,
+  "latency_s": 6.01
+ }
+}

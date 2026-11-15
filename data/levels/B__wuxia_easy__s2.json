@@ -1,0 +1,26 @@
+{
+ "level_id": "B__wuxia_easy__s2",
+ "arm": "B",
+ "sample": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v2",
+ "spec": {
+  "spec_id": "wuxia_easy",
+  "theme": "武侠江湖",
+  "theme_hint": "客栈、门派、恩怨、轻功",
+  "difficulty": "简单",
+  "difficulty_def": "新手友好：3个选项中至少2个能推进（成功或部分成功），失败代价轻、可重试，线索明显。",
+  "persona": "休闲剧情党",
+  "persona_desc": "碎片时间玩，想要好读的故事和情绪反馈，讨厌复杂规则",
+  "persona_id": "casual",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "{\n  \"title\": \"客栈奇遇\",\n  \"scene\": \"深夜，你躲在一间客栈的角落，观察着来来往往的武林人士。一名自称‘飞鹰’的神秘人带着一个包裹匆匆离去，引起了你的注意。这时，一个老茶客在你耳边低语，说‘飞鹰’可能在客栈的东厢房有秘密。”,\n  \"goal\": \"找到‘飞鹰’的秘密包裹\",\n  \"clue\": \"‘飞鹰’带走的包裹，东厢房\",\n  \"choices\": [\n    {\"id\": \"A\", \"text\": \"潜入东厢房查看\", \"outcome\": \"你发现一个隐蔽的暗格，里面放着一封书信和一些银两。书信提及‘飞鹰’与‘天琊门’的恩怨。”, \"result\": \"success\", \"next\": \"next_level\"},\n    {\"id\": \"B\", \"text\": \"询问客栈其他住客\", \"outcome\": \"你询问了几个人，没有人见过‘飞鹰’，没有获得关于包裹的线索。\", \"result\": \"partial\", \"next\": \"retry\"},\n    {\"id\": \"C\", \"text\": \"跟随‘飞鹰’离开\", \"outcome\": \"你跟随‘飞鹰’到了附近的酒铺，但他没有停留，继续前行。\", \"result\": \"fail\", \"next\": \"retry\"}\n  ]\n}",
+ "level": null,
+ "usage": {
+  "prompt_tokens": 695,
+  "completion_tokens": 297,
+  "latency_s": 11.75
+ }
+}

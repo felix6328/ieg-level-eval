@@ -1,0 +1,53 @@
+{
+ "level_id": "A__myth_hard__s2",
+ "arm": "A",
+ "sample": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v1",
+ "spec": {
+  "spec_id": "myth_hard",
+  "theme": "山海经神话",
+  "theme_hint": "异兽、上古神器、部落",
+  "difficulty": "困难",
+  "difficulty_def": "线索隐蔽且需要推理或资源权衡：最优解不显眼，至少1个看似合理的陷阱选项，失败有实质代价但不能是无提示的秒死。",
+  "persona": "10岁小学生",
+  "persona_desc": "阅读能力有限，内容必须适龄：无血腥、无恐怖描写过度、用词简单",
+  "persona_id": "kid",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "{\n  \"title\": \"幽冥之渊\",\n  \"scene\": \"小华跟随玄鸟的指引来到了幽冥之渊，这里雾气缭绕，四周都是参天大树，地面上铺满了闪烁着微光的石头。要通过这条狭窄的通道，才能到达传说中的幽冥之渊中心，那里据说隐藏着能够解答疑惑的神石。\",\n  \"goal\": \"找到神石并安全返回\",\n  \"choices\": [\n    {\n      \"id\": \"A\",\n      \"text\": \"踩着闪烁的石头前进\",\n      \"outcome\": \"小华小心翼翼地踩着这些看似不稳固的石头，好不容易才穿过通道。\",\n      \"result\": \"success\",\n      \"next\": \"next_level\"\n    },\n    {\n      \"id\": \"B\",\n      \"text\": \"探索四周看看是否有其他路\",\n      \"outcome\": \"小华发现了一条看似更为隐秘的小径，但这条路径显得更加崎岖不平，充满未知。\",\n      \"result\": \"partial\",\n      \"next\": \"retry\"\n    },\n    {\n      \"id\": \"C\",\n      \"text\": \"立刻转身返回\",\n      \"outcome\": \"小华感到有些害怕，决定返回，但刚一转身就听到一阵微弱的哭泣声。\",\n      \"result\": \"fail\",\n      \"next\": \"bad_end\"\n    }\n  ]\n}",
+ "level": {
+  "title": "幽冥之渊",
+  "scene": "小华跟随玄鸟的指引来到了幽冥之渊，这里雾气缭绕，四周都是参天大树，地面上铺满了闪烁着微光的石头。要通过这条狭窄的通道，才能到达传说中的幽冥之渊中心，那里据说隐藏着能够解答疑惑的神石。",
+  "goal": "找到神石并安全返回",
+  "choices": [
+   {
+    "id": "A",
+    "text": "踩着闪烁的石头前进",
+    "outcome": "小华小心翼翼地踩着这些看似不稳固的石头，好不容易才穿过通道。",
+    "result": "success",
+    "next": "next_level"
+   },
+   {
+    "id": "B",
+    "text": "探索四周看看是否有其他路",
+    "outcome": "小华发现了一条看似更为隐秘的小径，但这条路径显得更加崎岖不平，充满未知。",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "C",
+    "text": "立刻转身返回",
+    "outcome": "小华感到有些害怕，决定返回，但刚一转身就听到一阵微弱的哭泣声。",
+    "result": "fail",
+    "next": "bad_end"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 149,
+  "completion_tokens": 290,
+  "latency_s": 15.3
+ }
+}

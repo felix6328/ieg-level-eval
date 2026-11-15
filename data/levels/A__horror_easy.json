@@ -1,0 +1,52 @@
+{
+ "level_id": "A__horror_easy",
+ "arm": "A",
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v1",
+ "spec": {
+  "spec_id": "horror_easy",
+  "theme": "民俗悬疑",
+  "theme_hint": "老宅、祠堂、怪谈、真相",
+  "difficulty": "简单",
+  "difficulty_def": "新手友好：3个选项中至少2个能推进（成功或部分成功），失败代价轻、可重试，线索明显。",
+  "persona": "探索收集党",
+  "persona_desc": "喜欢发现隐藏信息、彩蛋和世界观细节",
+  "persona_id": "explorer",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "```json\n{\n  \"title\": \"神秘村落的秘密\",\n  \"scene\": \"你来到了一个古老的村落，空气中弥漫着淡淡的烟雾。村落周围竖立着古老的石碑，上面刻着奇怪的符文。村落的中心，有一座古老的庙宇，庙宇的门半开着。你踏进庙宇，发现了一扇通往地下的密室的门。\",\n  \"goal\": \"探索密室，找到隐藏的线索。\",\n  \"choices\": [\n    {\n      \"id\": \"A\",\n      \"text\": \"仔细观察密室周围的符文\",\n      \"outcome\": \"你发现了一排排古老的符文，每组三个，按照特定的顺序排列。\",\n      \"result\": \"success\",\n      \"next\": \"next_level\"\n    },\n    {\n      \"id\": \"B\",\n      \"text\": \"尝试打开密室的门\",\n      \"outcome\": \"密室的门似乎需要特定的开启方式，你用力推拉，但门纹丝不动。\",\n      \"result\": \"partial\",\n      \"next\": \"retry\"\n    },\n    {\n      \"id\": \"C\",\n      \"text\": \"在庙宇内寻找其他线索\",\n      \"outcome\": \"你发现了一个小型的祭坛，上面放着一本旧书，书页微微泛黄，上面记录了一些古老的故事。\",\n      \"result\": \"success\",\n      \"next\": \"next_level\"\n    }\n  ]\n}\n```",
+ "level": {
+  "title": "神秘村落的秘密",
+  "scene": "你来到了一个古老的村落，空气中弥漫着淡淡的烟雾。村落周围竖立着古老的石碑，上面刻着奇怪的符文。村落的中心，有一座古老的庙宇，庙宇的门半开着。你踏进庙宇，发现了一扇通往地下的密室的门。",
+  "goal": "探索密室，找到隐藏的线索。",
+  "choices": [
+   {
+    "id": "A",
+    "text": "仔细观察密室周围的符文",
+    "outcome": "你发现了一排排古老的符文，每组三个，按照特定的顺序排列。",
+    "result": "success",
+    "next": "next_level"
+   },
+   {
+    "id": "B",
+    "text": "尝试打开密室的门",
+    "outcome": "密室的门似乎需要特定的开启方式，你用力推拉，但门纹丝不动。",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "C",
+    "text": "在庙宇内寻找其他线索",
+    "outcome": "你发现了一个小型的祭坛，上面放着一本旧书，书页微微泛黄，上面记录了一些古老的故事。",
+    "result": "success",
+    "next": "next_level"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 147,
+  "completion_tokens": 303,
+  "latency_s": 16.23
+ }
+}

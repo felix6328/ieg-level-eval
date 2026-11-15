@@ -1,0 +1,53 @@
+{
+ "level_id": "A__adv_vague__s1",
+ "arm": "A",
+ "sample": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v1",
+ "spec": {
+  "spec_id": "adv_vague",
+  "theme": "随便，你看着办",
+  "theme_hint": "",
+  "difficulty": "普通",
+  "difficulty_def": "需要读懂场景线索：恰好1个最优解、1个部分成功（有代价）、1个失败但可重试。",
+  "persona": "休闲剧情党",
+  "persona_desc": "碎片时间玩，想要好读的故事和情绪反馈，讨厌复杂规则",
+  "persona_id": "casual",
+  "adversarial": true,
+  "why": "输入含糊：考察模型能否给出合理默认而不是空泛"
+ },
+ "raw": "{\n  \"title\": \"迷失的图书馆\",\n  \"scene\": \"你在一个古老的图书馆里徘徊，周围的书架高耸，书页上的文字散发着淡淡的光芒。空气中弥漫着霉味和知识的气息。你发现了一扇看起来像被遗弃的门，上面刻着奇怪的符号。你的目标是找到这扇门的秘密。\",\n  \"goal\": \"找到这扇门的秘密\",\n  \"choices\": [\n    {\n      \"id\": \"A\",\n      \"text\": \"尝试推门\",\n      \"outcome\": \"门没有反应，但你注意到门上的符号排列和书架上的书籍位置有某种联系。\",\n      \"result\": \"partial\",\n      \"next\": \"retry\"\n    },\n    {\n      \"id\": \"B\",\n      \"text\": \"查阅周围的书籍\",\n      \"outcome\": \"你发现了一本关于符号学的古书，书中描述了这些符号的含义，以及如何开启这扇门的方法。\",\n      \"result\": \"success\",\n      \"next\": \"next_level\"\n    },\n    {\n      \"id\": \"C\",\n      \"text\": \"绕过这扇门继续探索\",\n      \"outcome\": \"你继续在图书馆中寻找线索，但没有发现与这扇门相关的线索。\",\n      \"result\": \"fail\",\n      \"next\": \"bad_end\"\n    }\n  ]\n}",
+ "level": {
+  "title": "迷失的图书馆",
+  "scene": "你在一个古老的图书馆里徘徊，周围的书架高耸，书页上的文字散发着淡淡的光芒。空气中弥漫着霉味和知识的气息。你发现了一扇看起来像被遗弃的门，上面刻着奇怪的符号。你的目标是找到这扇门的秘密。",
+  "goal": "找到这扇门的秘密",
+  "choices": [
+   {
+    "id": "A",
+    "text": "尝试推门",
+    "outcome": "门没有反应，但你注意到门上的符号排列和书架上的书籍位置有某种联系。",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "B",
+    "text": "查阅周围的书籍",
+    "outcome": "你发现了一本关于符号学的古书，书中描述了这些符号的含义，以及如何开启这扇门的方法。",
+    "result": "success",
+    "next": "next_level"
+   },
+   {
+    "id": "C",
+    "text": "绕过这扇门继续探索",
+    "outcome": "你继续在图书馆中寻找线索，但没有发现与这扇门相关的线索。",
+    "result": "fail",
+    "next": "bad_end"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 149,
+  "completion_tokens": 281,
+  "latency_s": 7.58
+ }
+}

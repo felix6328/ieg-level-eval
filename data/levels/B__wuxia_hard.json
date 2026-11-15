@@ -1,0 +1,25 @@
+{
+ "level_id": "B__wuxia_hard",
+ "arm": "B",
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v2",
+ "spec": {
+  "spec_id": "wuxia_hard",
+  "theme": "武侠江湖",
+  "theme_hint": "客栈、门派、恩怨、轻功",
+  "difficulty": "困难",
+  "difficulty_def": "线索隐蔽且需要推理或资源权衡：最优解不显眼，至少1个看似合理的陷阱选项，失败有实质代价但不能是无提示的秒死。",
+  "persona": "探索收集党",
+  "persona_desc": "喜欢发现隐藏信息、彩蛋和世界观细节",
+  "persona_id": "explorer",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "{\n  \"title\": \"夜探古刹\",\n  \"scene\": \"月黑风高之夜，你潜行至一座古刹。周围静悄悄，但隐约听到轻功往返的声音。门派的恩怨在此刻显得格外沉重。古刹里机关重重，你必须小心翼翼。”,\n  \"goal\": \"找到隐藏在古刹中的重要线索。\",\n  \"clue\": \"轻功往返的声音是线索所在。\",\n  \"choices\": [\n    {\"id\": \"A\", \"text\": \"靠近轻功声音的方向”， \"outcome\": \"你发现了一个隐藏的小密室，里面有一张泛黄的藏宝图。但你注意到密室门上有细微的灰尘，留下了一丝足迹。\", \"result\": \"success\", \"next\": \"next_level\"},\n    {\"id\": \"B\", \"text\": \"四处观察，寻找其他线索\", \"outcome\": \"你发现了一扇未上锁的窗户，但里面只有灰尘和蛛网。\", \"result\": \"partial\", \"next\": \"retry\"},\n    {\"id\": \"C\", \"text\": \"离开此地，返回客栈搜集更多信息\", \"outcome\": \"你发现自己错过了那个隐藏的密室，只能返回客栈。\", \"result\": \"fail\", \"next\": \"retry\"}\n  ]\n}",
+ "level": null,
+ "usage": {
+  "prompt_tokens": 698,
+  "completion_tokens": 273,
+  "latency_s": 10.76
+ }
+}

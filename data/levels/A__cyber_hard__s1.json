@@ -1,0 +1,46 @@
+{
+ "level_id": "A__cyber_hard__s1",
+ "arm": "A",
+ "sample": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v1",
+ "spec": {
+  "spec_id": "cyber_hard",
+  "theme": "赛博朋克都市",
+  "theme_hint": "霓虹、义体、黑客、巨型企业",
+  "difficulty": "困难",
+  "difficulty_def": "线索隐蔽且需要推理或资源权衡：最优解不显眼，至少1个看似合理的陷阱选项，失败有实质代价但不能是无提示的秒死。",
+  "persona": "10岁小学生",
+  "persona_desc": "阅读能力有限，内容必须适龄：无血腥、无恐怖描写过度、用词简单",
+  "persona_id": "kid",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "{\n  \"title\": \"黑客侵入\",\n  \"scene\": \"在一个灯火通明的赛博朋克都市中，玩家扮演一名年轻的黑客，正潜入一家重要公司的服务器。一个巨大的屏幕闪烁着各种数据，城市的霓虹灯光在屏幕上反射出五彩斑斓的光影。玩家需要通过解开一系列谜题来获取重要数据。\",\n  \"goal\": \"成功入侵系统，获得关键文件。\",\n  \"choices\": [\n    {\n      \"id\": \"A\",\n      \"text\": \"点击屏幕上的红色按钮\",\n      \"outcome\": \"屏幕发出一声巨响，但没有出现任何文件。\",\n      \"result\": \"fail\",\n      \"next\": \"bad_end\"\n    },\n    {\n      \"id\": \"B\",\n      \"text\": \"尝试使用键盘输入命令\",\n      \"outcome\": \"屏幕上出现了提示语，要求输入解密代码。\",\n      \"result\": \"partial\",\n      \"next\": \"choice_2\"\n    },\n    {\n      \"id\": \"C\",\n      \"text\": \"查看周围是否有其他设备可以连接\",\n      \"outcome\": \"找到了一个插口，但不确定是否可以安全连接。\",\n      \"result\": \"partial\",\n      \"next\": \"choice_3\"\n    }\n  ],\n  \"choices\": [\n    {\n      \"id\": \"choice_2\",\n      \"text\": \"输入随机的解密代码\",\n      \"outcome\": \"解密代码无效，屏幕提示需要使用正确的代码。\",\n      \"result\": \"fail\",\n      \"next\": \"retry\"\n    },\n    {\n      \"id\": \"choice_2\",\n      \"text\": \"仔细分析屏幕上的提示信息\",\n      \"outcome\": \"理解了提示的信息，正确输入了解密代码。\",\n      \"result\": \"success\",\n      \"next\": \"next_level\"\n    },\n    {\n      \"id\": \"choice_3\",\n      \"text\": \"连接插口，但没有采取任何防护措施\",\n      \"outcome\": \"插口连接导致了系统警报，被发现。\",\n      \"result\": \"fail\",\n      \"next\": \"bad_end\"\n    },\n    {\n      \"id\": \"choice_3\",\n      \"text\": \"连接插口前设法进行防护\",\n      \"outcome\": \"防护措施有效，成功连接插口，但未找到关键文件。\",\n      \"result\": \"partial\",\n      \"next\": \"choice_4\"\n    }\n  ],\n  \"choices\": [\n    {\n      \"id\": \"choice_4\",\n      \"text\": \"询问路过的市民是否知道文件所在\",\n      \"outcome\": \"市民提供了线索，但需要进一步验证。\",\n      \"result\": \"partial\",\n      \"next\": \"retry\"\n    },\n    {\n      \"id\": \"choice_4\",\n      \"text\": \"继续在系统中搜索关键文件\",\n      \"outcome\": \"找到了关键文件，但遇到了新的安全措施，需要进一步破解。\",\n      \"result\": \"success\",\n      \"next\": \"next_level\"\n    }\n  ]\n}",
+ "level": {
+  "title": "黑客侵入",
+  "scene": "在一个灯火通明的赛博朋克都市中，玩家扮演一名年轻的黑客，正潜入一家重要公司的服务器。一个巨大的屏幕闪烁着各种数据，城市的霓虹灯光在屏幕上反射出五彩斑斓的光影。玩家需要通过解开一系列谜题来获取重要数据。",
+  "goal": "成功入侵系统，获得关键文件。",
+  "choices": [
+   {
+    "id": "choice_4",
+    "text": "询问路过的市民是否知道文件所在",
+    "outcome": "市民提供了线索，但需要进一步验证。",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "choice_4",
+    "text": "继续在系统中搜索关键文件",
+    "outcome": "找到了关键文件，但遇到了新的安全措施，需要进一步破解。",
+    "result": "success",
+    "next": "next_level"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 150,
+  "completion_tokens": 626,
+  "latency_s": 18.1
+ }
+}

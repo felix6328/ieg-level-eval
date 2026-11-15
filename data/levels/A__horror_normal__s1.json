@@ -1,0 +1,53 @@
+{
+ "level_id": "A__horror_normal__s1",
+ "arm": "A",
+ "sample": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v1",
+ "spec": {
+  "spec_id": "horror_normal",
+  "theme": "民俗悬疑",
+  "theme_hint": "老宅、祠堂、怪谈、真相",
+  "difficulty": "普通",
+  "difficulty_def": "需要读懂场景线索：恰好1个最优解、1个部分成功（有代价）、1个失败但可重试。",
+  "persona": "10岁小学生",
+  "persona_desc": "阅读能力有限，内容必须适龄：无血腥、无恐怖描写过度、用词简单",
+  "persona_id": "kid",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "{\n  \"title\": \"消失的龙舟\",\n  \"scene\": \"天气阴沉沉的，天空中飘着零星的雨点。小河上的龙舟大赛即将举行，可是突然传来消息说参赛的龙舟竟然不见了！小朋友们只能在河边寻找线索，希望找到失踪的龙舟。\",\n  \"goal\": \"帮助小朋友们找到失踪的龙舟。\",\n  \"choices\": [\n    {\n      \"id\": \"A\",\n      \"text\": \"询问河边的老爷爷\",\n      \"outcome\": \"老爷爷说很久以前，这里有一个关于龙舟的古老传说，龙舟是龙的儿子，不慎落入水中，被河水冲走了。\",\n      \"result\": \"partial\",\n      \"next\": \"B\"\n    },\n    {\n      \"id\": \"B\",\n      \"text\": \"查看龙舟大赛的报名记录\",\n      \"outcome\": \"仔细查看了报名记录，发现有一个陌生的名字，但是没有联系方式。\",\n      \"result\": \"success\",\n      \"next\": \"C\"\n    },\n    {\n      \"id\": \"C\",\n      \"text\": \"沿着河边寻找\",\n      \"outcome\": \"沿着河边仔细寻找，但是没有发现任何线索，只看到一些龙舟残片。\",\n      \"result\": \"fail\",\n      \"next\": \"D\"\n    }\n  ]\n}",
+ "level": {
+  "title": "消失的龙舟",
+  "scene": "天气阴沉沉的，天空中飘着零星的雨点。小河上的龙舟大赛即将举行，可是突然传来消息说参赛的龙舟竟然不见了！小朋友们只能在河边寻找线索，希望找到失踪的龙舟。",
+  "goal": "帮助小朋友们找到失踪的龙舟。",
+  "choices": [
+   {
+    "id": "A",
+    "text": "询问河边的老爷爷",
+    "outcome": "老爷爷说很久以前，这里有一个关于龙舟的古老传说，龙舟是龙的儿子，不慎落入水中，被河水冲走了。",
+    "result": "partial",
+    "next": "B"
+   },
+   {
+    "id": "B",
+    "text": "查看龙舟大赛的报名记录",
+    "outcome": "仔细查看了报名记录，发现有一个陌生的名字，但是没有联系方式。",
+    "result": "success",
+    "next": "C"
+   },
+   {
+    "id": "C",
+    "text": "沿着河边寻找",
+    "outcome": "沿着河边仔细寻找，但是没有发现任何线索，只看到一些龙舟残片。",
+    "result": "fail",
+    "next": "D"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 148,
+  "completion_tokens": 277,
+  "latency_s": 9.06
+ }
+}

@@ -1,0 +1,202 @@
+[
+ {
+  "label_id": "L01",
+  "level_id": "A__cyber_easy",
+  "split": "dev"
+ },
+ {
+  "label_id": "L02",
+  "level_id": "A__horror_easy",
+  "split": "dev"
+ },
+ {
+  "label_id": "L03",
+  "level_id": "B__cyber_easy",
+  "split": "dev"
+ },
+ {
+  "label_id": "L04",
+  "level_id": "A__adv_vague",
+  "split": "dev"
+ },
+ {
+  "label_id": "L05",
+  "level_id": "B__cyber_normal",
+  "split": "dev"
+ },
+ {
+  "label_id": "L06",
+  "level_id": "C__campus_normal",
+  "split": "dev"
+ },
+ {
+  "label_id": "L07",
+  "level_id": "C__myth_hard",
+  "split": "dev"
+ },
+ {
+  "label_id": "L08",
+  "level_id": "B__horror_easy",
+  "split": "dev"
+ },
+ {
+  "label_id": "L09",
+  "level_id": "C__campus_hard",
+  "split": "dev"
+ },
+ {
+  "label_id": "L10",
+  "level_id": "B__myth_hard",
+  "split": "dev"
+ },
+ {
+  "label_id": "L11",
+  "level_id": "B__adv_vague",
+  "split": "dev"
+ },
+ {
+  "label_id": "L12",
+  "level_id": "A__campus_normal",
+  "split": "dev"
+ },
+ {
+  "label_id": "L13",
+  "level_id": "C__adv_inject",
+  "split": "dev"
+ },
+ {
+  "label_id": "L14",
+  "level_id": "A__myth_hard",
+  "split": "dev"
+ },
+ {
+  "label_id": "L15",
+  "level_id": "C__wuxia_easy",
+  "split": "dev"
+ },
+ {
+  "label_id": "L16",
+  "level_id": "A__cyber_hard",
+  "split": "holdout"
+ },
+ {
+  "label_id": "L17",
+  "level_id": "B__adv_overconstrained",
+  "split": "holdout"
+ },
+ {
+  "label_id": "L18",
+  "level_id": "B__adv_kid_horror",
+  "split": "holdout"
+ },
+ {
+  "label_id": "L19",
+  "level_id": "C__wuxia_normal",
+  "split": "holdout"
+ },
+ {
+  "label_id": "L20",
+  "level_id": "C__adv_kid_horror",
+  "split": "holdout"
+ },
+ {
+  "label_id": "L21",
+  "level_id": "B__campus_easy",
+  "split": "holdout"
+ },
+ {
+  "label_id": "L22",
+  "level_id": "C__space_normal",
+  "split": "holdout"
+ },
+ {
+  "label_id": "L23",
+  "level_id": "A__campus_easy",
+  "split": "holdout"
+ },
+ {
+  "label_id": "L24",
+  "level_id": "A__myth_easy",
+  "split": "holdout"
+ },
+ {
+  "label_id": "L25",
+  "level_id": "B__adv_inject",
+  "split": "holdout"
+ },
+ {
+  "label_id": "L26",
+  "level_id": "A__cyber_normal__s2",
+  "split": "holdout"
+ },
+ {
+  "label_id": "L27",
+  "level_id": "B__myth_easy__s2",
+  "split": "holdout"
+ },
+ {
+  "label_id": "L28",
+  "level_id": "C__cyber_hard__s1",
+  "split": "holdout"
+ },
+ {
+  "label_id": "L29",
+  "level_id": "B__space_normal__s2",
+  "split": "holdout"
+ },
+ {
+  "label_id": "L30",
+  "level_id": "B__wuxia_easy__s1",
+  "split": "holdout"
+ },
+ {
+  "label_id": "L31",
+  "level_id": "B__adv_hard_casual__s2",
+  "split": "holdout"
+ },
+ {
+  "label_id": "L32",
+  "level_id": "A__adv_paradox__s1",
+  "split": "holdout"
+ },
+ {
+  "label_id": "L33",
+  "level_id": "C__space_easy__s1",
+  "split": "holdout"
+ },
+ {
+  "label_id": "L34",
+  "level_id": "B__space_hard__s2",
+  "split": "holdout"
+ },
+ {
+  "label_id": "L35",
+  "level_id": "A__wuxia_easy__s2",
+  "split": "holdout"
+ },
+ {
+  "label_id": "L36",
+  "level_id": "A__adv_inject__s2",
+  "split": "holdout"
+ },
+ {
+  "label_id": "L37",
+  "level_id": "C__cyber_easy__s1",
+  "split": "holdout"
+ },
+ {
+  "label_id": "L38",
+  "level_id": "A__cyber_normal__s1",
+  "split": "holdout"
+ },
+ {
+  "label_id": "L39",
+  "level_id": "C__space_easy__s2",
+  "split": "holdout"
+ },
+ {
+  "label_id": "L40",
+  "level_id": "C__cyber_normal__s2",
+  "split": "holdout"
+ }
+]

@@ -1,0 +1,53 @@
+{
+ "level_id": "A__space_easy__s2",
+ "arm": "A",
+ "sample": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v1",
+ "spec": {
+  "spec_id": "space_easy",
+  "theme": "太空求生",
+  "theme_hint": "飞船故障、氧气、未知信号",
+  "difficulty": "简单",
+  "difficulty_def": "新手友好：3个选项中至少2个能推进（成功或部分成功），失败代价轻、可重试，线索明显。",
+  "persona": "休闲剧情党",
+  "persona_desc": "碎片时间玩，想要好读的故事和情绪反馈，讨厌复杂规则",
+  "persona_id": "casual",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "{\n    \"title\": \"逃离黑洞\",\n    \"scene\": \"你所在的太空船突然遭遇了黑洞的引力影响，船上的氧气和能源都在迅速耗尽。你必须做出选择，尽快找到脱离黑洞的方法。\",\n    \"goal\": \"找到一种方式逃离黑洞，确保幸存。\",\n    \"choices\": [\n        {\n            \"id\": \"A\",\n            \"text\": \"尝试使用备用推进器\",\n            \"outcome\": \"你启动了备用推进器，虽然电力有限，但还是成功地离开了黑洞的范围，虽然船体受损严重。\",\n            \"result\": \"success\",\n            \"next\": \"next_level\"\n        },\n        {\n            \"id\": \"B\",\n            \"text\": \"立即寻找其他太空船求救\",\n            \"outcome\": \"你在附近搜寻了许久，但并没有找到其他太空船。时间流逝，船上的氧气越来越短缺。\",\n            \"result\": \"fail\",\n            \"next\": \"bad_end\"\n        },\n        {\n            \"id\": \"C\",\n            \"text\": \"检查生存舱是否可用\",\n            \"outcome\": \"经过检查，发现生存舱的氧气供应已经耗尽，无法使用。\",\n            \"result\": \"partial\",\n            \"next\": \"retry\"\n        }\n    ]\n}",
+ "level": {
+  "title": "逃离黑洞",
+  "scene": "你所在的太空船突然遭遇了黑洞的引力影响，船上的氧气和能源都在迅速耗尽。你必须做出选择，尽快找到脱离黑洞的方法。",
+  "goal": "找到一种方式逃离黑洞，确保幸存。",
+  "choices": [
+   {
+    "id": "A",
+    "text": "尝试使用备用推进器",
+    "outcome": "你启动了备用推进器，虽然电力有限，但还是成功地离开了黑洞的范围，虽然船体受损严重。",
+    "result": "success",
+    "next": "next_level"
+   },
+   {
+    "id": "B",
+    "text": "立即寻找其他太空船求救",
+    "outcome": "你在附近搜寻了许久，但并没有找到其他太空船。时间流逝，船上的氧气越来越短缺。",
+    "result": "fail",
+    "next": "bad_end"
+   },
+   {
+    "id": "C",
+    "text": "检查生存舱是否可用",
+    "outcome": "经过检查，发现生存舱的氧气供应已经耗尽，无法使用。",
+    "result": "partial",
+    "next": "retry"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 147,
+  "completion_tokens": 262,
+  "latency_s": 12.86
+ }
+}

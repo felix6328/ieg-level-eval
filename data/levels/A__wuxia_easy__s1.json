@@ -1,0 +1,53 @@
+{
+ "level_id": "A__wuxia_easy__s1",
+ "arm": "A",
+ "sample": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v1",
+ "spec": {
+  "spec_id": "wuxia_easy",
+  "theme": "武侠江湖",
+  "theme_hint": "客栈、门派、恩怨、轻功",
+  "difficulty": "简单",
+  "difficulty_def": "新手友好：3个选项中至少2个能推进（成功或部分成功），失败代价轻、可重试，线索明显。",
+  "persona": "休闲剧情党",
+  "persona_desc": "碎片时间玩，想要好读的故事和情绪反馈，讨厌复杂规则",
+  "persona_id": "casual",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "```json\n{\n  \"title\": \"初入江湖\",\n  \"scene\": \"你刚刚踏入江湖，面前是一片广阔的山谷。山谷中飘着蒙蒙细雨，远处的群山若隐若现。山谷入口处，有两个穿着不同服装的人在交谈。\",\n  \"goal\": \"了解山谷两侧的入口，找到朋友的下落。\",\n  \"choices\": [\n    {\n      \"id\": \"A\",\n      \"text\": \"询问穿蓝色衣服的人\",\n      \"outcome\": \"那人告诉你西侧入口有人在等你。\",\n      \"result\": \"partial\",\n      \"next\": \"retry\"\n    },\n    {\n      \"id\": \"B\",\n      \"text\": \"询问穿红色衣服的人\",\n      \"outcome\": \"那人告诉你东侧入口有一场武林大会。\",\n      \"result\": \"partial\",\n      \"next\": \"retry\"\n    },\n    {\n      \"id\": \"C\",\n      \"text\": \"直接过去查看西侧入口\",\n      \"outcome\": \"你发现入口处有一封信，信中提到你的朋友正前往东侧山谷。\",\n      \"result\": \"success\",\n      \"next\": \"next_level\"\n    }\n  ]\n}\n```",
+ "level": {
+  "title": "初入江湖",
+  "scene": "你刚刚踏入江湖，面前是一片广阔的山谷。山谷中飘着蒙蒙细雨，远处的群山若隐若现。山谷入口处，有两个穿着不同服装的人在交谈。",
+  "goal": "了解山谷两侧的入口，找到朋友的下落。",
+  "choices": [
+   {
+    "id": "A",
+    "text": "询问穿蓝色衣服的人",
+    "outcome": "那人告诉你西侧入口有人在等你。",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "B",
+    "text": "询问穿红色衣服的人",
+    "outcome": "那人告诉你东侧入口有一场武林大会。",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "C",
+    "text": "直接过去查看西侧入口",
+    "outcome": "你发现入口处有一封信，信中提到你的朋友正前往东侧山谷。",
+    "result": "success",
+    "next": "next_level"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 146,
+  "completion_tokens": 247,
+  "latency_s": 7.49
+ }
+}

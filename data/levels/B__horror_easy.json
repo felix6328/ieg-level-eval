@@ -1,0 +1,53 @@
+{
+ "level_id": "B__horror_easy",
+ "arm": "B",
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v2",
+ "spec": {
+  "spec_id": "horror_easy",
+  "theme": "民俗悬疑",
+  "theme_hint": "老宅、祠堂、怪谈、真相",
+  "difficulty": "简单",
+  "difficulty_def": "新手友好：3个选项中至少2个能推进（成功或部分成功），失败代价轻、可重试，线索明显。",
+  "persona": "探索收集党",
+  "persona_desc": "喜欢发现隐藏信息、彩蛋和世界观细节",
+  "persona_id": "explorer",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "{\n  \"title\": \"祠堂秘闻\",\n  \"scene\": \"古宅的祠堂内尘封多年，屋顶斑驳，神龛前摆放着几支残烛。你注意到墙上有几行模糊的字迹，以及角落里藏着一串旧钥匙。\",\n  \"goal\": \"找到祠堂的秘密，解开老宅的谜团。\",\n  \"clue\": \"墙上的模糊字迹和角落里的旧钥匙。\",\n  \"choices\": [\n    {\"id\": \"A\", \"text\": \"仔细阅读墙上的模糊字迹\", \"outcome\": \"字迹描述了一个机关的开启方法，你找到了隐藏的门。\", \"result\": \"success\", \"next\": \"next_level\"},\n    {\"id\": \"B\", \"text\": \"检查角落里的旧钥匙\", \"outcome\": \"钥匙锈迹斑斑，但似乎能打开祠堂里的某个小柜子。\", \"result\": \"partial\", \"next\": \"retry\"},\n    {\"id\": \"C\", \"text\": \"敲击墙上的某处以试探\", \"outcome\": \"发出轻微的回响，但没有触发任何机关。\", \"result\": \"fail\", \"next\": \"retry\"}\n  ]\n}",
+ "level": {
+  "title": "祠堂秘闻",
+  "scene": "古宅的祠堂内尘封多年，屋顶斑驳，神龛前摆放着几支残烛。你注意到墙上有几行模糊的字迹，以及角落里藏着一串旧钥匙。",
+  "goal": "找到祠堂的秘密，解开老宅的谜团。",
+  "clue": "墙上的模糊字迹和角落里的旧钥匙。",
+  "choices": [
+   {
+    "id": "A",
+    "text": "仔细阅读墙上的模糊字迹",
+    "outcome": "字迹描述了一个机关的开启方法，你找到了隐藏的门。",
+    "result": "success",
+    "next": "next_level"
+   },
+   {
+    "id": "B",
+    "text": "检查角落里的旧钥匙",
+    "outcome": "钥匙锈迹斑斑，但似乎能打开祠堂里的某个小柜子。",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "C",
+    "text": "敲击墙上的某处以试探",
+    "outcome": "发出轻微的回响，但没有触发任何机关。",
+    "result": "fail",
+    "next": "retry"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 691,
+  "completion_tokens": 255,
+  "latency_s": 8.4
+ }
+}

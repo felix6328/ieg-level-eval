@@ -1,0 +1,52 @@
+{
+ "level_id": "A__myth_easy",
+ "arm": "A",
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v1",
+ "spec": {
+  "spec_id": "myth_easy",
+  "theme": "山海经神话",
+  "theme_hint": "异兽、上古神器、部落",
+  "difficulty": "简单",
+  "difficulty_def": "新手友好：3个选项中至少2个能推进（成功或部分成功），失败代价轻、可重试，线索明显。",
+  "persona": "硬核解谜党",
+  "persona_desc": "喜欢推理和机关，讨厌一眼看穿的选项，重视逻辑严密",
+  "persona_id": "hardcore",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "{\n  \"title\": \"化形石\",\n  \"scene\": \"你置身于一座古老的神山之中，四周弥漫着雾气，隐约可见山石上刻着古老的符文。你找到了一块散发着幽光的石头，石面上刻着古怪的文字，似乎在诉说着什么。\",\n  \"goal\": \"你需要解读石上的文字，找到石的作用。\",\n  \"choices\": [\n    {\n      \"id\": \"A\",\n      \"text\": \"仔细研读石上的符文。\",\n      \"outcome\": \"你发现这是一段关于变化身形的咒语，但似乎需要某种特定的媒介来完成。\",\n      \"result\": \"partial\",\n      \"next\": \"retry\"\n    },\n    {\n      \"id\": \"B\",\n      \"text\": \"试着触摸石头，感受其能量。\",\n      \"outcome\": \"你感受到了一股轻微的能量波动，但没有发生任何变化。\",\n      \"result\": \"partial\",\n      \"next\": \"retry\"\n    },\n    {\n      \"id\": \"C\",\n      \"text\": \"寻找周围的环境，看是否有可以辅助的物品。\",\n      \"outcome\": \"你在不远处找到了一株散发着幽光的草，草上似乎刻着与石头相同的符文。\",\n      \"result\": \"success\",\n      \"next\": \"next_level\"\n    }\n  ]\n}",
+ "level": {
+  "title": "化形石",
+  "scene": "你置身于一座古老的神山之中，四周弥漫着雾气，隐约可见山石上刻着古老的符文。你找到了一块散发着幽光的石头，石面上刻着古怪的文字，似乎在诉说着什么。",
+  "goal": "你需要解读石上的文字，找到石的作用。",
+  "choices": [
+   {
+    "id": "A",
+    "text": "仔细研读石上的符文。",
+    "outcome": "你发现这是一段关于变化身形的咒语，但似乎需要某种特定的媒介来完成。",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "B",
+    "text": "试着触摸石头，感受其能量。",
+    "outcome": "你感受到了一股轻微的能量波动，但没有发生任何变化。",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "C",
+    "text": "寻找周围的环境，看是否有可以辅助的物品。",
+    "outcome": "你在不远处找到了一株散发着幽光的草，草上似乎刻着与石头相同的符文。",
+    "result": "success",
+    "next": "next_level"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 150,
+  "completion_tokens": 276,
+  "latency_s": 12.28
+ }
+}

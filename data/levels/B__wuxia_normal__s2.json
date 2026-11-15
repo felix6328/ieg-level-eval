@@ -1,0 +1,54 @@
+{
+ "level_id": "B__wuxia_normal__s2",
+ "arm": "B",
+ "sample": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v2",
+ "spec": {
+  "spec_id": "wuxia_normal",
+  "theme": "武侠江湖",
+  "theme_hint": "客栈、门派、恩怨、轻功",
+  "difficulty": "普通",
+  "difficulty_def": "需要读懂场景线索：恰好1个最优解、1个部分成功（有代价）、1个失败但可重试。",
+  "persona": "硬核解谜党",
+  "persona_desc": "喜欢推理和机关，讨厌一眼看穿的选项，重视逻辑严密",
+  "persona_id": "hardcore",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "{\n  \"title\": \"断剑客栈\",\n  \"scene\": \"在断剑客栈内，你发现墙上挂着一把断剑，旁边有一行字迹模糊的笔记。桌上散落着几张纸条，其中一张似乎被某种力道折过。你面前有三条通往不同方向的门，分别标注为东、南、西。\",\n  \"goal\": \"寻找通向隐藏门派的秘密路径\",\n  \"clue\": \"注释：A选项指向断剑；B选项指向笔记；C选项指向纸条。\",\n  \"choices\": [\n    {\"id\": \"A\", \"text\": \"查看断剑\", \"outcome\": \"断剑上刻着一行字：‘东南门，非轻功不得入’。你明白了路径所在。\", \"result\": \"success\", \"next\": \"next_level\"},\n    {\"id\": \"B\", \"text\": \"阅读模糊的笔记\", \"outcome\": \"笔记上写着：‘门派内藏机关，谨慎行事’。你感觉这个提示不那么直接。\", \"result\": \"partial\", \"next\": \"retry\"},\n    {\"id\": \"C\", \"text\": \"检查纸条\", \"outcome\": \"纸条上写着：‘西门有锁，易开，但无捷径’。你不确定这是否是关键信息。\", \"result\": \"fail\", \"next\": \"retry\"}\n  ]\n}",
+ "level": {
+  "title": "断剑客栈",
+  "scene": "在断剑客栈内，你发现墙上挂着一把断剑，旁边有一行字迹模糊的笔记。桌上散落着几张纸条，其中一张似乎被某种力道折过。你面前有三条通往不同方向的门，分别标注为东、南、西。",
+  "goal": "寻找通向隐藏门派的秘密路径",
+  "clue": "注释：A选项指向断剑；B选项指向笔记；C选项指向纸条。",
+  "choices": [
+   {
+    "id": "A",
+    "text": "查看断剑",
+    "outcome": "断剑上刻着一行字：‘东南门，非轻功不得入’。你明白了路径所在。",
+    "result": "success",
+    "next": "next_level"
+   },
+   {
+    "id": "B",
+    "text": "阅读模糊的笔记",
+    "outcome": "笔记上写着：‘门派内藏机关，谨慎行事’。你感觉这个提示不那么直接。",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "C",
+    "text": "检查纸条",
+    "outcome": "纸条上写着：‘西门有锁，易开，但无捷径’。你不确定这是否是关键信息。",
+    "result": "fail",
+    "next": "retry"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 695,
+  "completion_tokens": 296,
+  "latency_s": 11.08
+ }
+}

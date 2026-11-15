@@ -1,0 +1,54 @@
+{
+ "level_id": "B__space_easy__s1",
+ "arm": "B",
+ "sample": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v2",
+ "spec": {
+  "spec_id": "space_easy",
+  "theme": "太空求生",
+  "theme_hint": "飞船故障、氧气、未知信号",
+  "difficulty": "简单",
+  "difficulty_def": "新手友好：3个选项中至少2个能推进（成功或部分成功），失败代价轻、可重试，线索明显。",
+  "persona": "休闲剧情党",
+  "persona_desc": "碎片时间玩，想要好读的故事和情绪反馈，讨厌复杂规则",
+  "persona_id": "casual",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "{\n  \"title\": \"修复通讯\",\n  \"scene\": \"飞船迫降在一个未知星球，周围是荒凉的岩石。你发现一台损毁的通讯器，上面有几个闪烁的灯光。你注意到旁边的控制面板上有几个按钮，似乎与通讯器相连。\",\n  \"goal\": \"尝试修复通讯器，希望联系救援队伍。\",\n  \"clue\": \"闪烁的灯光和旁边的控制面板。\",\n  \"choices\": [\n    {\"id\": \"A\", \"text\": \"按控制面板上的红色按钮\", \"outcome\": \"红色按钮被按了一下，但没有明显变化，通讯器依然没有反应。\", \"result\": \"partial\", \"next\": \"retry\"},\n    {\"id\": \"B\", \"text\": \"检查通讯器的线路是否正常\", \"outcome\": \"检查后发现线路确实有断裂，于是你迅速接上断裂的电缆，通讯器发出嗡嗡声后恢复了。\", \"result\": \"success\", \"next\": \"next_level\"},\n    {\"id\": \"C\", \"text\": \"尝试扭动通讯器的旋钮\", \"outcome\": \"旋钮扭动了几下，但是没有任何反应，通讯器仍然处在无响应状态。\", \"result\": \"fail\", \"next\": \"retry\"}\n  ]\n}",
+ "level": {
+  "title": "修复通讯",
+  "scene": "飞船迫降在一个未知星球，周围是荒凉的岩石。你发现一台损毁的通讯器，上面有几个闪烁的灯光。你注意到旁边的控制面板上有几个按钮，似乎与通讯器相连。",
+  "goal": "尝试修复通讯器，希望联系救援队伍。",
+  "clue": "闪烁的灯光和旁边的控制面板。",
+  "choices": [
+   {
+    "id": "A",
+    "text": "按控制面板上的红色按钮",
+    "outcome": "红色按钮被按了一下，但没有明显变化，通讯器依然没有反应。",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "B",
+    "text": "检查通讯器的线路是否正常",
+    "outcome": "检查后发现线路确实有断裂，于是你迅速接上断裂的电缆，通讯器发出嗡嗡声后恢复了。",
+    "result": "success",
+    "next": "next_level"
+   },
+   {
+    "id": "C",
+    "text": "尝试扭动通讯器的旋钮",
+    "outcome": "旋钮扭动了几下，但是没有任何反应，通讯器仍然处在无响应状态。",
+    "result": "fail",
+    "next": "retry"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 693,
+  "completion_tokens": 267,
+  "latency_s": 9.54
+ }
+}

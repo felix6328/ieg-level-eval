@@ -1,0 +1,53 @@
+{
+ "level_id": "B__horror_normal",
+ "arm": "B",
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v2",
+ "spec": {
+  "spec_id": "horror_normal",
+  "theme": "民俗悬疑",
+  "theme_hint": "老宅、祠堂、怪谈、真相",
+  "difficulty": "普通",
+  "difficulty_def": "需要读懂场景线索：恰好1个最优解、1个部分成功（有代价）、1个失败但可重试。",
+  "persona": "10岁小学生",
+  "persona_desc": "阅读能力有限，内容必须适龄：无血腥、无恐怖描写过度、用词简单",
+  "persona_id": "kid",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "{\"title\": \"老宅之谜\",\n  \"scene\": \"一个小男孩打开吱呀作响的木门，进入了破旧的祠堂。祠堂内光线昏暗，地上散落着一些旧照片和奇怪的符咒。角落里有一张石桌，上面放着一本尘封的古籍。\",\n  \"goal\": \"找到隐藏的宝藏线索。\",\n  \"clue\": \"石桌上的古籍。\",\n  \"choices\": [\n    {\"id\": \"A\", \"text\": \"翻开石桌上的古籍\", \"outcome\": \"古籍中记载着一段模糊的藏宝图，但缺少关键信息。\", \"result\": \"partial\", \"next\": \"retry\"},\n    {\"id\": \"B\", \"text\": \"检查祠堂内的旧照片\", \"outcome\": \"照片的内容看不懂，但吸引小男孩的目光，似乎有家人的笑容。\", \"result\": \"fail\", \"next\": \"retry\"},\n    {\"id\": \"C\", \"text\": \"仔细观察地面的奇怪符咒\", \"outcome\": \"符咒上似乎刻有与古籍中描述的符号相符，小男孩意识到藏宝图缺失的部分可能就在这附近。\", \"result\": \"success\", \"next\": \"next_level\"}\n  ]}",
+ "level": {
+  "title": "老宅之谜",
+  "scene": "一个小男孩打开吱呀作响的木门，进入了破旧的祠堂。祠堂内光线昏暗，地上散落着一些旧照片和奇怪的符咒。角落里有一张石桌，上面放着一本尘封的古籍。",
+  "goal": "找到隐藏的宝藏线索。",
+  "clue": "石桌上的古籍。",
+  "choices": [
+   {
+    "id": "A",
+    "text": "翻开石桌上的古籍",
+    "outcome": "古籍中记载着一段模糊的藏宝图，但缺少关键信息。",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "B",
+    "text": "检查祠堂内的旧照片",
+    "outcome": "照片的内容看不懂，但吸引小男孩的目光，似乎有家人的笑容。",
+    "result": "fail",
+    "next": "retry"
+   },
+   {
+    "id": "C",
+    "text": "仔细观察地面的奇怪符咒",
+    "outcome": "符咒上似乎刻有与古籍中描述的符号相符，小男孩意识到藏宝图缺失的部分可能就在这附近。",
+    "result": "success",
+    "next": "next_level"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 700,
+  "completion_tokens": 266,
+  "latency_s": 6.24
+ }
+}

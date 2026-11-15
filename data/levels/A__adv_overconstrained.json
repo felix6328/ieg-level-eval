@@ -1,0 +1,25 @@
+{
+ "level_id": "A__adv_overconstrained",
+ "arm": "A",
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v1",
+ "spec": {
+  "spec_id": "adv_overconstrained",
+  "theme": "赛博朋克+武侠+校园，必须出现机器猫、长安城、期末考试和一把会说话的剑",
+  "theme_hint": "",
+  "difficulty": "普通",
+  "difficulty_def": "需要读懂场景线索：恰好1个最优解、1个部分成功（有代价）、1个失败但可重试。",
+  "persona": "探索收集党",
+  "persona_desc": "喜欢发现隐藏信息、彩蛋和世界观细节",
+  "persona_id": "explorer",
+  "adversarial": true,
+  "why": "约束过载：多元素混搭，考察是否遗漏约束、是否缝合怪"
+ },
+ "raw": "{\n  \"title\": \"赛博长安\",\n  \"scene\": \"在这个赛博朋克风的长安城里，古老的建筑与高科技设施并存。街道上的人们穿着现代与传统结合的服装，机器猫懒散地坐在街边的机器人餐馆里。空气中弥漫着一股混合着科技与烟火气的味道。今天是期末考试的日子，但在这个充满机遇的地方，考试似乎被赋予了新的意义。\",\n  \"goal\": \"玩家需要找到一把会说话的剑，作为期末考试的特殊考试题目，以证明自己的见识与智慧。\",\n  \"choices\": [\n    {\n      \"id\": \"A\",\n      \"text\": \"向机器猫打听会说话的剑的下落。\",\n      \"outcome\": \"机器猫懒洋洋地说：‘哦，那把剑啊，它现在在城北的废墟里，那里不时会有危险出现。’\",\n      \"result\": \"partial\",\n      \"next\": \"retry\"\n    },\n    {\n      \"id\": \"B\",\n      \"text\": \"去城北的废墟寻找剑\",\n      \"outcome\": \"玩家小心翼翼地穿过废墟，不时被废墟中的陷阱所干扰。终于在一处隐蔽的地方找到了会说话的剑，剑上刻着一些奇怪的文字。\",\n      \"result\": \"success\",\n      \"next\": \"next_level\"\n    },\n    {\n      \"id\": \"C\",\n      \"text\": \"询问路边的行人关于会说话的剑的事\",\n      \"outcome\": \"人们耸耸肩，似乎并不知道剑的具体位置，但有人提到剑可能与废墟里的某个故事有关。\"\n      \"result\": \"partial\",\n      \"next\": \"retry\"\n    }\n  ]\n}",
+ "level": null,
+ "usage": {
+  "prompt_tokens": 169,
+  "completion_tokens": 360,
+  "latency_s": 8.99
+ }
+}

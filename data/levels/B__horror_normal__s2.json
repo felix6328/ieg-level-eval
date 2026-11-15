@@ -1,0 +1,54 @@
+{
+ "level_id": "B__horror_normal__s2",
+ "arm": "B",
+ "sample": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v2",
+ "spec": {
+  "spec_id": "horror_normal",
+  "theme": "民俗悬疑",
+  "theme_hint": "老宅、祠堂、怪谈、真相",
+  "difficulty": "普通",
+  "difficulty_def": "需要读懂场景线索：恰好1个最优解、1个部分成功（有代价）、1个失败但可重试。",
+  "persona": "10岁小学生",
+  "persona_desc": "阅读能力有限，内容必须适龄：无血腥、无恐怖描写过度、用词简单",
+  "persona_id": "kid",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "{\n  \"title\": \"神秘的祠堂\",\n  \"scene\": \"小明踏入一座古老的祠堂，墙上挂满了族谱和祭祀用的器具。空气中弥漫着一股淡淡的香火味。小明注意到墙上的老族长画像，他的眼神似乎在注视着祠堂的每个角落。\",\n  \"goal\": \"找到祠堂的秘密房间\",\n  \"clue\": \"老族长画像的眼神\",\n  \"choices\": [\n    {\n      \"id\": \"A\",\n      \"text\": \"仔细观察画像\",\n      \"outcome\": \"小明发现画像的眼睛似乎在移动。他尝试模仿画像的视线，发现了一扇隐蔽的门。\",\n      \"result\": \"success\",\n      \"next\": \"next_level\"\n    },\n    {\n      \"id\": \"B\",\n      \"text\": \"用随身的木棍尝试打开门\",\n      \"outcome\": \"小明用力敲打了一番，没有明显的反应。门还是紧闭着。\",\n      \"result\": \"partial\",\n      \"next\": \"retry\"\n    },\n    {\n      \"id\": \"C\",\n      \"text\": \"大声喊叫寻求帮助\",\n      \"outcome\": \"祠堂回声传来一个幽幽的声音，似乎是在说‘别惊扰了先祖的安宁’。小明觉得有些不对劲，但门依然未开。\",\n      \"result\": \"fail\",\n      \"next\": \"retry\"\n    }\n  ]\n}",
+ "level": {
+  "title": "神秘的祠堂",
+  "scene": "小明踏入一座古老的祠堂，墙上挂满了族谱和祭祀用的器具。空气中弥漫着一股淡淡的香火味。小明注意到墙上的老族长画像，他的眼神似乎在注视着祠堂的每个角落。",
+  "goal": "找到祠堂的秘密房间",
+  "clue": "老族长画像的眼神",
+  "choices": [
+   {
+    "id": "A",
+    "text": "仔细观察画像",
+    "outcome": "小明发现画像的眼睛似乎在移动。他尝试模仿画像的视线，发现了一扇隐蔽的门。",
+    "result": "success",
+    "next": "next_level"
+   },
+   {
+    "id": "B",
+    "text": "用随身的木棍尝试打开门",
+    "outcome": "小明用力敲打了一番，没有明显的反应。门还是紧闭着。",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "C",
+    "text": "大声喊叫寻求帮助",
+    "outcome": "祠堂回声传来一个幽幽的声音，似乎是在说‘别惊扰了先祖的安宁’。小明觉得有些不对劲，但门依然未开。",
+    "result": "fail",
+    "next": "retry"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 700,
+  "completion_tokens": 301,
+  "latency_s": 9.66
+ }
+}

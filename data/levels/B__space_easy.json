@@ -1,0 +1,53 @@
+{
+ "level_id": "B__space_easy",
+ "arm": "B",
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v2",
+ "spec": {
+  "spec_id": "space_easy",
+  "theme": "太空求生",
+  "theme_hint": "飞船故障、氧气、未知信号",
+  "difficulty": "简单",
+  "difficulty_def": "新手友好：3个选项中至少2个能推进（成功或部分成功），失败代价轻、可重试，线索明显。",
+  "persona": "休闲剧情党",
+  "persona_desc": "碎片时间玩，想要好读的故事和情绪反馈，讨厌复杂规则",
+  "persona_id": "casual",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "{\"title\": \"修复通讯\",\n  \"scene\": \"你所在的飞船舱室内，一台闪烁着红光的设备正发出刺耳的报警声。舱外的黑暗中，似乎传来了微弱的未知信号。你瞥见工具箱里的紧急维修工具，但最显眼的是角落里一罐尚未启用的补给氧气。\",\n  \"goal\": \"尽快修复通讯设备\",\n  \"clue\": \"红光闪烁的设备和补给氧气\",\n  \"choices\": [\n    {\"id\": \"A\", \"text\": \"使用紧急维修工具修理设备\", \"outcome\": \"红光逐渐消退，设备恢复正常，并捕获到清晰的未知信号。\", \"result\": \"success\", \"next\": \"next_level\"},\n    {\"id\": \"B\", \"text\": \"检查补给氧气\", \"outcome\": \"确认氧气罐完好，补充了部分飞船内的氧气储备，没有发现启动它的线索。\", \"result\": \"partial\", \"next\": \"retry\"},\n    {\"id\": \"C\", \"text\": \"不理睬，希望信号自行消失\", \"outcome\": \"未知信号依然存在，红光更加剧烈，设备似乎即将完全失效。\", \"result\": \"fail\", \"next\": \"retry\"}\n  ]}",
+ "level": {
+  "title": "修复通讯",
+  "scene": "你所在的飞船舱室内，一台闪烁着红光的设备正发出刺耳的报警声。舱外的黑暗中，似乎传来了微弱的未知信号。你瞥见工具箱里的紧急维修工具，但最显眼的是角落里一罐尚未启用的补给氧气。",
+  "goal": "尽快修复通讯设备",
+  "clue": "红光闪烁的设备和补给氧气",
+  "choices": [
+   {
+    "id": "A",
+    "text": "使用紧急维修工具修理设备",
+    "outcome": "红光逐渐消退，设备恢复正常，并捕获到清晰的未知信号。",
+    "result": "success",
+    "next": "next_level"
+   },
+   {
+    "id": "B",
+    "text": "检查补给氧气",
+    "outcome": "确认氧气罐完好，补充了部分飞船内的氧气储备，没有发现启动它的线索。",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "C",
+    "text": "不理睬，希望信号自行消失",
+    "outcome": "未知信号依然存在，红光更加剧烈，设备似乎即将完全失效。",
+    "result": "fail",
+    "next": "retry"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 693,
+  "completion_tokens": 265,
+  "latency_s": 6.62
+ }
+}

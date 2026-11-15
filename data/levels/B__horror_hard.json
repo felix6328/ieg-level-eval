@@ -1,0 +1,53 @@
+{
+ "level_id": "B__horror_hard",
+ "arm": "B",
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v2",
+ "spec": {
+  "spec_id": "horror_hard",
+  "theme": "民俗悬疑",
+  "theme_hint": "老宅、祠堂、怪谈、真相",
+  "difficulty": "困难",
+  "difficulty_def": "线索隐蔽且需要推理或资源权衡：最优解不显眼，至少1个看似合理的陷阱选项，失败有实质代价但不能是无提示的秒死。",
+  "persona": "休闲剧情党",
+  "persona_desc": "碎片时间玩，想要好读的故事和情绪反馈，讨厌复杂规则",
+  "persona_id": "casual",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "{\"title\": \"祠堂谜团\",\n  \"scene\": \"你踏入一座古宅，穿过重重回廊后，来到一座雄伟的祠堂。祠堂内烛光摇曳，神龛后的画作中，似乎隐藏着某种秘密。你注意到墙上刻着一行模糊的文字，似乎与祠堂有关，但看不清楚。\",\n  \"goal\": \"揭开祠堂的谜团\",\n  \"clue\": \"模糊的文字线索位于祠堂墙壁上。\",\n  \"choices\": [\n    {\"id\": \"A\", \"text\": \"尝试解读墙上的模糊文字\", \"outcome\": \"你费力地辨认文字，发现似乎是在描述祠堂历史中的一场火灾事件。\", \"result\": \"partial\", \"next\": \"retry\"},\n    {\"id\": \"B\", \"text\": \"检查祠堂中的神龛\", \"outcome\": \"神龛内有一面铜镜，镜中隐约反射出一张陌生的脸。\", \"result\": \"success\", \"next\": \"next_level\"},\n    {\"id\": \"C\", \"text\": \"询问其他房间中的一位老仆\", \"outcome\": \"老仆只是摇头，表示对祠堂的事一无所知，显得有些不耐烦。\", \"result\": \"fail\", \"next\": \"bad_end\"}\n  ]}",
+ "level": {
+  "title": "祠堂谜团",
+  "scene": "你踏入一座古宅，穿过重重回廊后，来到一座雄伟的祠堂。祠堂内烛光摇曳，神龛后的画作中，似乎隐藏着某种秘密。你注意到墙上刻着一行模糊的文字，似乎与祠堂有关，但看不清楚。",
+  "goal": "揭开祠堂的谜团",
+  "clue": "模糊的文字线索位于祠堂墙壁上。",
+  "choices": [
+   {
+    "id": "A",
+    "text": "尝试解读墙上的模糊文字",
+    "outcome": "你费力地辨认文字，发现似乎是在描述祠堂历史中的一场火灾事件。",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "B",
+    "text": "检查祠堂中的神龛",
+    "outcome": "神龛内有一面铜镜，镜中隐约反射出一张陌生的脸。",
+    "result": "success",
+    "next": "next_level"
+   },
+   {
+    "id": "C",
+    "text": "询问其他房间中的一位老仆",
+    "outcome": "老仆只是摇头，表示对祠堂的事一无所知，显得有些不耐烦。",
+    "result": "fail",
+    "next": "bad_end"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 704,
+  "completion_tokens": 276,
+  "latency_s": 6.93
+ }
+}

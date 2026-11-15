@@ -1,0 +1,52 @@
+{
+ "level_id": "A__horror_normal",
+ "arm": "A",
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v1",
+ "spec": {
+  "spec_id": "horror_normal",
+  "theme": "民俗悬疑",
+  "theme_hint": "老宅、祠堂、怪谈、真相",
+  "difficulty": "普通",
+  "difficulty_def": "需要读懂场景线索：恰好1个最优解、1个部分成功（有代价）、1个失败但可重试。",
+  "persona": "10岁小学生",
+  "persona_desc": "阅读能力有限，内容必须适龄：无血腥、无恐怖描写过度、用词简单",
+  "persona_id": "kid",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "{\n  \"title\": \"神秘的村庄\",\n  \"scene\": \"在一个古老而神秘的村庄里，天空中飘着几朵乌云，空气中弥漫着一种说不清道不明的气息。村里的孩子们都消失了，只剩下空荡荡的屋子和几个年迈的老人在村口等待着什么。\",\n  \"goal\": \"找到失踪的孩子们。\",\n  \"choices\": [\n    {\n      \"id\": \"A\",\n      \"text\": \"询问村里的老人，了解孩子们失踪的原因。\",\n      \"outcome\": \"老人说孩子们被一种传说中的神秘生物带走了，这种生物只会在满月之夜出现。\",\n      \"result\": \"partial\",\n      \"next\": \"retry\"\n    },\n    {\n      \"id\": \"B\",\n      \"text\": \"去村子后面的山洞探险，寻找线索。\",\n      \"outcome\": \"在山洞中发现了一些奇怪的符号，还有一些小孩的玩具。\",\n      \"result\": \"success\",\n      \"next\": \"next_level\"\n    },\n    {\n      \"id\": \"C\",\n      \"text\": \"在村子里四处寻找，希望能找到孩子们。\",\n      \"outcome\": \"在村子的后花园里找到了一个昏迷的小孩，但没有其他线索。\",\n      \"result\": \"partial\",\n      \"next\": \"retry\"\n    }\n  ]\n}",
+ "level": {
+  "title": "神秘的村庄",
+  "scene": "在一个古老而神秘的村庄里，天空中飘着几朵乌云，空气中弥漫着一种说不清道不明的气息。村里的孩子们都消失了，只剩下空荡荡的屋子和几个年迈的老人在村口等待着什么。",
+  "goal": "找到失踪的孩子们。",
+  "choices": [
+   {
+    "id": "A",
+    "text": "询问村里的老人，了解孩子们失踪的原因。",
+    "outcome": "老人说孩子们被一种传说中的神秘生物带走了，这种生物只会在满月之夜出现。",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "B",
+    "text": "去村子后面的山洞探险，寻找线索。",
+    "outcome": "在山洞中发现了一些奇怪的符号，还有一些小孩的玩具。",
+    "result": "success",
+    "next": "next_level"
+   },
+   {
+    "id": "C",
+    "text": "在村子里四处寻找，希望能找到孩子们。",
+    "outcome": "在村子的后花园里找到了一个昏迷的小孩，但没有其他线索。",
+    "result": "partial",
+    "next": "retry"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 148,
+  "completion_tokens": 274,
+  "latency_s": 7.52
+ }
+}

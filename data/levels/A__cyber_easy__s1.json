@@ -1,0 +1,53 @@
+{
+ "level_id": "A__cyber_easy__s1",
+ "arm": "A",
+ "sample": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v1",
+ "spec": {
+  "spec_id": "cyber_easy",
+  "theme": "赛博朋克都市",
+  "theme_hint": "霓虹、义体、黑客、巨型企业",
+  "difficulty": "简单",
+  "difficulty_def": "新手友好：3个选项中至少2个能推进（成功或部分成功），失败代价轻、可重试，线索明显。",
+  "persona": "硬核解谜党",
+  "persona_desc": "喜欢推理和机关，讨厌一眼看穿的选项，重视逻辑严密",
+  "persona_id": "hardcore",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "{\n  \"title\": \"数据窃取\",\n  \"scene\": \"你站在废弃的赛博朋克都市中，眼前是一个闪着蓝光的服务器机房。门口的大门上贴着“安全级别：高”的标签。机房内部安装着复杂的摄像头和传感器，但似乎已经被破坏过。你悄悄绕过大门，进入机房内部。\",\n  \"goal\": \"偷取服务器中的重要数据。\",\n  \"choices\": [\n    {\n      \"id\": \"A\",\n      \"text\": \"尝试找到备用控制台，启动窃取数据的程序。\",\n      \"outcome\": \"成功启动了程序，但引起了监控摄像头的注意，导致警报响起。\",\n      \"result\": \"partial\",\n      \"next\": \"retry\"\n    },\n    {\n      \"id\": \"B\",\n      \"text\": \"寻找服务器旁边的隐藏通风口，使用工具攀爬进入。\",\n      \"outcome\": \"顺利进入通风口，抵达服务器上方，快速下载所需数据。\",\n      \"result\": \"success\",\n      \"next\": \"next_level\"\n    },\n    {\n      \"id\": \"C\",\n      \"text\": \"用随身携带的病毒攻击服务器，试图直接获取数据。\",\n      \"outcome\": \"病毒启动，服务器被成功入侵，但病毒也触发了自毁程序，服务器开始爆炸。\",\n      \"result\": \"fail\",\n      \"next\": \"bad_end\"\n    }\n  ]\n}",
+ "level": {
+  "title": "数据窃取",
+  "scene": "你站在废弃的赛博朋克都市中，眼前是一个闪着蓝光的服务器机房。门口的大门上贴着“安全级别：高”的标签。机房内部安装着复杂的摄像头和传感器，但似乎已经被破坏过。你悄悄绕过大门，进入机房内部。",
+  "goal": "偷取服务器中的重要数据。",
+  "choices": [
+   {
+    "id": "A",
+    "text": "尝试找到备用控制台，启动窃取数据的程序。",
+    "outcome": "成功启动了程序，但引起了监控摄像头的注意，导致警报响起。",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "B",
+    "text": "寻找服务器旁边的隐藏通风口，使用工具攀爬进入。",
+    "outcome": "顺利进入通风口，抵达服务器上方，快速下载所需数据。",
+    "result": "success",
+    "next": "next_level"
+   },
+   {
+    "id": "C",
+    "text": "用随身携带的病毒攻击服务器，试图直接获取数据。",
+    "outcome": "病毒启动，服务器被成功入侵，但病毒也触发了自毁程序，服务器开始爆炸。",
+    "result": "fail",
+    "next": "bad_end"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 151,
+  "completion_tokens": 297,
+  "latency_s": 8.69
+ }
+}

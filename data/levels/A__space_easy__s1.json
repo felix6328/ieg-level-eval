@@ -1,0 +1,53 @@
+{
+ "level_id": "A__space_easy__s1",
+ "arm": "A",
+ "sample": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v1",
+ "spec": {
+  "spec_id": "space_easy",
+  "theme": "太空求生",
+  "theme_hint": "飞船故障、氧气、未知信号",
+  "difficulty": "简单",
+  "difficulty_def": "新手友好：3个选项中至少2个能推进（成功或部分成功），失败代价轻、可重试，线索明显。",
+  "persona": "休闲剧情党",
+  "persona_desc": "碎片时间玩，想要好读的故事和情绪反馈，讨厌复杂规则",
+  "persona_id": "casual",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "{\n  \"title\": \"逃生舱突变\",\n  \"scene\": \"你身处于太空站的维修舱中，外面是漆黑无垠的宇宙空间。突然，维修舱的门自动关闭，舱内的一台显示器亮起，显示着逃生舱的状态检测结果，却毫无显示逃生舱的位置信息。空气中弥漫着紧张的气氛。\",\n  \"goal\": \"找到并启动逃生舱，逃离这艘太空站。\",\n  \"choices\": [\n    {\n      \"id\": \"A\",\n      \"text\": \"检查舱内的控制面板\",\n      \"outcome\": \"通过控制面板查看了逃生舱的状态，但没有获得具体位置。\",\n      \"result\": \"partial\",\n      \"next\": \"retry\"\n    },\n    {\n      \"id\": \"B\",\n      \"text\": \"四处搜寻是否有逃生舱的标志\",\n      \"outcome\": \"舱内没有明显的逃生舱标记，但找到了一个写有逃生舱可能位置的旧文件。\",\n      \"result\": \"success\",\n      \"next\": \"next_level\"\n    },\n    {\n      \"id\": \"C\",\n      \"text\": \"尝试手动打开逃生舱门\",\n      \"outcome\": \"手动尝试打开逃生舱门失败，舱门被强力锁定。\",\n      \"result\": \"fail\",\n      \"next\": \"bad_end\"\n    }\n  ]\n}",
+ "level": {
+  "title": "逃生舱突变",
+  "scene": "你身处于太空站的维修舱中，外面是漆黑无垠的宇宙空间。突然，维修舱的门自动关闭，舱内的一台显示器亮起，显示着逃生舱的状态检测结果，却毫无显示逃生舱的位置信息。空气中弥漫着紧张的气氛。",
+  "goal": "找到并启动逃生舱，逃离这艘太空站。",
+  "choices": [
+   {
+    "id": "A",
+    "text": "检查舱内的控制面板",
+    "outcome": "通过控制面板查看了逃生舱的状态，但没有获得具体位置。",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "B",
+    "text": "四处搜寻是否有逃生舱的标志",
+    "outcome": "舱内没有明显的逃生舱标记，但找到了一个写有逃生舱可能位置的旧文件。",
+    "result": "success",
+    "next": "next_level"
+   },
+   {
+    "id": "C",
+    "text": "尝试手动打开逃生舱门",
+    "outcome": "手动尝试打开逃生舱门失败，舱门被强力锁定。",
+    "result": "fail",
+    "next": "bad_end"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 147,
+  "completion_tokens": 280,
+  "latency_s": 10.02
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "level_id": "A__space_normal",
+ "arm": "A",
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v1",
+ "spec": {
+  "spec_id": "space_normal",
+  "theme": "太空求生",
+  "theme_hint": "飞船故障、氧气、未知信号",
+  "difficulty": "普通",
+  "difficulty_def": "需要读懂场景线索：恰好1个最优解、1个部分成功（有代价）、1个失败但可重试。",
+  "persona": "硬核解谜党",
+  "persona_desc": "喜欢推理和机关，讨厌一眼看穿的选项，重视逻辑严密",
+  "persona_id": "hardcore",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "{\n  \"title\": \"修复生命支持系统\",\n  \"scene\": \"你所在的宇宙飞船在一次意外中受损，你现在位于受损最严重的前舱。生命支持系统受损，飞船内的氧气即将耗尽。你发现一个控制面板上显示着三个故障代码：A、B和C。你需要选择一个故障代码进行修复。\",\n  \"goal\": \"找到正确的故障代码并修复它，以恢复生命支持系统。\",\n  \"choices\": [\n    {\n      \"id\": \"A\",\n      \"text\": \"选择A代码\",\n      \"outcome\": \"检查发现A代码对应的区域有轻微的电路过热，但没有其他损坏。\",\n      \"result\": \"partial\",\n      \"next\": \"retry\"\n    },\n    {\n      \"id\": \"B\",\n      \"text\": \"选择B代码\",\n      \"outcome\": \"检查发现B代码对应的区域存在严重的电路短路，必须先进行隔离处理，然后才能修复。\",\n      \"result\": \"fail\",\n      \"next\": \"bad_end\"\n    },\n    {\n      \"id\": \"C\",\n      \"text\": \"选择C代码\",\n      \"outcome\": \"检查发现C代码对应的区域只是小范围的电路中断，很容易修复。\",\n      \"result\": \"success\",\n      \"next\": \"next_level\"\n    }\n  ]\n}",
+ "level": {
+  "title": "修复生命支持系统",
+  "scene": "你所在的宇宙飞船在一次意外中受损，你现在位于受损最严重的前舱。生命支持系统受损，飞船内的氧气即将耗尽。你发现一个控制面板上显示着三个故障代码：A、B和C。你需要选择一个故障代码进行修复。",
+  "goal": "找到正确的故障代码并修复它，以恢复生命支持系统。",
+  "choices": [
+   {
+    "id": "A",
+    "text": "选择A代码",
+    "outcome": "检查发现A代码对应的区域有轻微的电路过热，但没有其他损坏。",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "B",
+    "text": "选择B代码",
+    "outcome": "检查发现B代码对应的区域存在严重的电路短路，必须先进行隔离处理，然后才能修复。",
+    "result": "fail",
+    "next": "bad_end"
+   },
+   {
+    "id": "C",
+    "text": "选择C代码",
+    "outcome": "检查发现C代码对应的区域只是小范围的电路中断，很容易修复。",
+    "result": "success",
+    "next": "next_level"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 149,
+  "completion_tokens": 274,
+  "latency_s": 7.14
+ }
+}

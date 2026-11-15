@@ -1,0 +1,53 @@
+{
+ "level_id": "A__horror_normal__s2",
+ "arm": "A",
+ "sample": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v1",
+ "spec": {
+  "spec_id": "horror_normal",
+  "theme": "民俗悬疑",
+  "theme_hint": "老宅、祠堂、怪谈、真相",
+  "difficulty": "普通",
+  "difficulty_def": "需要读懂场景线索：恰好1个最优解、1个部分成功（有代价）、1个失败但可重试。",
+  "persona": "10岁小学生",
+  "persona_desc": "阅读能力有限，内容必须适龄：无血腥、无恐怖描写过度、用词简单",
+  "persona_id": "kid",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "```json\n{\n  \"title\": \"迷雾中的村庄\",\n  \"scene\": \"在一个古老的村庄里，今晚突然下起了大雾。村子的入口处挂满了五彩斑斓的灯笼，但每走几步就会看到一扇紧闭的木门，门上都贴着奇怪的符咒。玩家的任务是找到消失的村庄先知。\",\n  \"goal\": \"找到消失的村庄先知。\",\n  \"choices\": [\n    {\n      \"id\": \"A\",\n      \"text\": \"询问第一个紧闭的木门后的一位老妇人\",\n      \"outcome\": \"老妇人说先知因一场神秘的疾病而失踪，但她记得先知曾向她询问过村庄里的秘密。\",\n      \"result\": \"partial\",\n      \"next\": \"retry\"\n    },\n    {\n      \"id\": \"B\",\n      \"text\": \"用门上的符咒去尝试打开下一扇门\",\n      \"outcome\": \"门悄无声息地打开了，里面是一间冷清的小屋，地上散落着一些书本和草稿。\",\n      \"result\": \"success\",\n      \"next\": \"bad_end\"\n    },\n    {\n      \"id\": \"C\",\n      \"text\": \"继续向前走去，寻找更多的线索\",\n      \"outcome\": \"继续前行，遇到了几个孩子，他们说先知去了村外的古井边。\",\n      \"result\": \"partial\",\n      \"next\": \"retry\"\n    }\n  ]\n}\n```",
+ "level": {
+  "title": "迷雾中的村庄",
+  "scene": "在一个古老的村庄里，今晚突然下起了大雾。村子的入口处挂满了五彩斑斓的灯笼，但每走几步就会看到一扇紧闭的木门，门上都贴着奇怪的符咒。玩家的任务是找到消失的村庄先知。",
+  "goal": "找到消失的村庄先知。",
+  "choices": [
+   {
+    "id": "A",
+    "text": "询问第一个紧闭的木门后的一位老妇人",
+    "outcome": "老妇人说先知因一场神秘的疾病而失踪，但她记得先知曾向她询问过村庄里的秘密。",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "B",
+    "text": "用门上的符咒去尝试打开下一扇门",
+    "outcome": "门悄无声息地打开了，里面是一间冷清的小屋，地上散落着一些书本和草稿。",
+    "result": "success",
+    "next": "bad_end"
+   },
+   {
+    "id": "C",
+    "text": "继续向前走去，寻找更多的线索",
+    "outcome": "继续前行，遇到了几个孩子，他们说先知去了村外的古井边。",
+    "result": "partial",
+    "next": "retry"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 148,
+  "completion_tokens": 310,
+  "latency_s": 7.92
+ }
+}

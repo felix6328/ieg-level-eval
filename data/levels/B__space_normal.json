@@ -1,0 +1,53 @@
+{
+ "level_id": "B__space_normal",
+ "arm": "B",
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v2",
+ "spec": {
+  "spec_id": "space_normal",
+  "theme": "太空求生",
+  "theme_hint": "飞船故障、氧气、未知信号",
+  "difficulty": "普通",
+  "difficulty_def": "需要读懂场景线索：恰好1个最优解、1个部分成功（有代价）、1个失败但可重试。",
+  "persona": "硬核解谜党",
+  "persona_desc": "喜欢推理和机关，讨厌一眼看穿的选项，重视逻辑严密",
+  "persona_id": "hardcore",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "{\n  \"title\": \"修复氧气系统\",\n  \"scene\": \"飞船遭遇未知信号干扰，核心舱的氧气系统故障。舱壁上张贴着一张古老的星际地图。控制面板显示：「左侧循环泵失灵」、「右侧循环泵异常」。你必须迅速修复氧气系统，否则飞船将随时可能失控。\",\n  \"goal\": \"修复氧气系统，确保飞船安全运行。\",\n  \"clue\": \"核心舱左侧循环泵失灵；控制面板右侧循环泵异常；舱壁上的古老星际地图。\",\n  \"choices\": [\n    {\"id\": \"A\", \"text\": \"检查左侧循环泵\", \"outcome\": \"左侧循环泵内部电路损坏，需要更换零件。\", \"result\": \"partial\", \"next\": \"retry\"},\n    {\"id\": \"B\", \"text\": \"检查右侧循环泵\", \"outcome\": \"右侧循环泵的过滤器堵塞，可以清理恢复。\", \"result\": \"success\", \"next\": \"next_level\"},\n    {\"id\": \"C\", \"text\": \"研究舱壁上的星际地图\", \"outcome\": \"发现地图暗示了一个关于右侧循环泵的古老修理方法，但需要结合控制面板的提示才能解开。\", \"result\": \"partial\", \"next\": \"retry\"}\n  ]\n}",
+ "level": {
+  "title": "修复氧气系统",
+  "scene": "飞船遭遇未知信号干扰，核心舱的氧气系统故障。舱壁上张贴着一张古老的星际地图。控制面板显示：「左侧循环泵失灵」、「右侧循环泵异常」。你必须迅速修复氧气系统，否则飞船将随时可能失控。",
+  "goal": "修复氧气系统，确保飞船安全运行。",
+  "clue": "核心舱左侧循环泵失灵；控制面板右侧循环泵异常；舱壁上的古老星际地图。",
+  "choices": [
+   {
+    "id": "A",
+    "text": "检查左侧循环泵",
+    "outcome": "左侧循环泵内部电路损坏，需要更换零件。",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "B",
+    "text": "检查右侧循环泵",
+    "outcome": "右侧循环泵的过滤器堵塞，可以清理恢复。",
+    "result": "success",
+    "next": "next_level"
+   },
+   {
+    "id": "C",
+    "text": "研究舱壁上的星际地图",
+    "outcome": "发现地图暗示了一个关于右侧循环泵的古老修理方法，但需要结合控制面板的提示才能解开。",
+    "result": "partial",
+    "next": "retry"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 693,
+  "completion_tokens": 269,
+  "latency_s": 6.37
+ }
+}

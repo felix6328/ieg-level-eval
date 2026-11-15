@@ -1,0 +1,54 @@
+{
+ "level_id": "B__campus_normal__s1",
+ "arm": "B",
+ "sample": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v2",
+ "spec": {
+  "spec_id": "campus_normal",
+  "theme": "校园日常",
+  "theme_hint": "社团、考试、友情、小误会",
+  "difficulty": "普通",
+  "difficulty_def": "需要读懂场景线索：恰好1个最优解、1个部分成功（有代价）、1个失败但可重试。",
+  "persona": "休闲剧情党",
+  "persona_desc": "碎片时间玩，想要好读的故事和情绪反馈，讨厌复杂规则",
+  "persona_id": "casual",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "{\n  \"title\": \"图书馆的秘密\",\n  \"scene\": \"小艾走进图书馆，看到平时总是空荡荡的自助借书区这次却有几个人在窃窃私语。其中一个身影熟悉——是小莉，她的好友。小艾犹豫着该不该上前询问，因为她们社团的下周活动计划就在借书区进行。\",\n  \"goal\": \"了解社团活动的具体安排\",\n  \"clue\": \"借书区有人窃窃私语，特别是小莉的身影。\",\n  \"choices\": [\n    {\"id\": \"A\", \"text\": \"上前询问\", \"outcome\": \"小艾走到小莉面前，小莉看起来有些心神不宁，但还是简单介绍了活动的安排。\", \"result\": \"success\", \"next\": \"next_level\"},\n    {\"id\": \"B\", \"text\": \"悄悄观察\", \"outcome\": \"小艾观察了一会儿，发现大家都在讨论某些新上架的书籍，而小莉似乎在偷笑。\", \"result\": \"partial\", \"next\": \"retry\"},\n    {\"id\": \"C\", \"text\": \"直接无视\", \"outcome\": \"小艾继续自己的阅读，但之后社团活动时却不知道具体细节，导致计划与实际有出入。\", \"result\": \"fail\", \"next\": \"next_level\"}\n  ]\n}",
+ "level": {
+  "title": "图书馆的秘密",
+  "scene": "小艾走进图书馆，看到平时总是空荡荡的自助借书区这次却有几个人在窃窃私语。其中一个身影熟悉——是小莉，她的好友。小艾犹豫着该不该上前询问，因为她们社团的下周活动计划就在借书区进行。",
+  "goal": "了解社团活动的具体安排",
+  "clue": "借书区有人窃窃私语，特别是小莉的身影。",
+  "choices": [
+   {
+    "id": "A",
+    "text": "上前询问",
+    "outcome": "小艾走到小莉面前，小莉看起来有些心神不宁，但还是简单介绍了活动的安排。",
+    "result": "success",
+    "next": "next_level"
+   },
+   {
+    "id": "B",
+    "text": "悄悄观察",
+    "outcome": "小艾观察了一会儿，发现大家都在讨论某些新上架的书籍，而小莉似乎在偷笑。",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "C",
+    "text": "直接无视",
+    "outcome": "小艾继续自己的阅读，但之后社团活动时却不知道具体细节，导致计划与实际有出入。",
+    "result": "fail",
+    "next": "next_level"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 691,
+  "completion_tokens": 278,
+  "latency_s": 7.54
+ }
+}

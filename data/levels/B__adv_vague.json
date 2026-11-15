@@ -1,0 +1,53 @@
+{
+ "level_id": "B__adv_vague",
+ "arm": "B",
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v2",
+ "spec": {
+  "spec_id": "adv_vague",
+  "theme": "随便，你看着办",
+  "theme_hint": "",
+  "difficulty": "普通",
+  "difficulty_def": "需要读懂场景线索：恰好1个最优解、1个部分成功（有代价）、1个失败但可重试。",
+  "persona": "休闲剧情党",
+  "persona_desc": "碎片时间玩，想要好读的故事和情绪反馈，讨厌复杂规则",
+  "persona_id": "casual",
+  "adversarial": true,
+  "why": "输入含糊：考察模型能否给出合理默认而不是空泛"
+ },
+ "raw": "{\"title\": \"村口的守卫\", \"scene\": \"夕阳下，通往古老村落的木桥旁，一名守卫手执长矛，警惕地注视着来人。村民们低语，似乎对这位守卫有所畏惧。你注意到他手上的皮鞘和腰间的铃铛在夕阳中闪着光。\", \"goal\": \"通过守卫的盘问进入村落。\", \"clue\": \"皮鞘和铃铛\", \"choices\": [{\"id\": \"A\", \"text\": \"直接走过桥\", \"outcome\": \"你试图快速走过，但守卫突然挥矛挡住你，质问你是何人。\", \"result\": \"fail\", \"next\": \"retry\"}, {\"id\": \"B\", \"text\": \"向守卫介绍自己是村长的亲戚\", \"outcome\": \"守卫狐疑地看了看你，摇摇头，让你回去等待进一步通知。\", \"result\": \"partial\", \"next\": \"next_level\"}, {\"id\": \"C\", \"text\": \"询问守卫是否需要查看你的铃铛\", \"outcome\": \"守卫接过你的铃铛仔细查看，然后满意地点点头，放你通过。\", \"result\": \"success\", \"next\": \"next_level\"}]}",
+ "level": {
+  "title": "村口的守卫",
+  "scene": "夕阳下，通往古老村落的木桥旁，一名守卫手执长矛，警惕地注视着来人。村民们低语，似乎对这位守卫有所畏惧。你注意到他手上的皮鞘和腰间的铃铛在夕阳中闪着光。",
+  "goal": "通过守卫的盘问进入村落。",
+  "clue": "皮鞘和铃铛",
+  "choices": [
+   {
+    "id": "A",
+    "text": "直接走过桥",
+    "outcome": "你试图快速走过，但守卫突然挥矛挡住你，质问你是何人。",
+    "result": "fail",
+    "next": "retry"
+   },
+   {
+    "id": "B",
+    "text": "向守卫介绍自己是村长的亲戚",
+    "outcome": "守卫狐疑地看了看你，摇摇头，让你回去等待进一步通知。",
+    "result": "partial",
+    "next": "next_level"
+   },
+   {
+    "id": "C",
+    "text": "询问守卫是否需要查看你的铃铛",
+    "outcome": "守卫接过你的铃铛仔细查看，然后满意地点点头，放你通过。",
+    "result": "success",
+    "next": "next_level"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 682,
+  "completion_tokens": 264,
+  "latency_s": 7.84
+ }
+}

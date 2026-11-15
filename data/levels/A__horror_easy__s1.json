@@ -1,0 +1,53 @@
+{
+ "level_id": "A__horror_easy__s1",
+ "arm": "A",
+ "sample": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v1",
+ "spec": {
+  "spec_id": "horror_easy",
+  "theme": "民俗悬疑",
+  "theme_hint": "老宅、祠堂、怪谈、真相",
+  "difficulty": "简单",
+  "difficulty_def": "新手友好：3个选项中至少2个能推进（成功或部分成功），失败代价轻、可重试，线索明显。",
+  "persona": "探索收集党",
+  "persona_desc": "喜欢发现隐藏信息、彩蛋和世界观细节",
+  "persona_id": "explorer",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "{\"title\": \"神秘的古村落\", \"scene\": \"你来到了一个充满古老气息的村庄，四周静悄悄的，只能听到远处传来的几声鸡鸣。路上散落着一些破旧的石板，似乎已经很久没有人走过。村口有一棵巨大的榕树，树干粗壮，枝叶繁茂。周围有几座老旧的石屋零星分布，偶尔还能看到几只鸡在悠闲地觅食。\", \"goal\": \"收集所有散落的纸条，解开村庄的秘密\", \"choices\": [{\"id\": \"A\", \"text\": \"去榕树下看看\", \"outcome\": \"发现了一张泛黄的纸条，上面写着一些古文，还有一些奇怪的符号。\", \"result\": \"success\", \"next\": \"next_level\"}, {\"id\": \"B\", \"text\": \"去最近的石屋看看\", \"outcome\": \"门紧闭，窗户紧闭，没有任何动静。\", \"result\": \"partial\", \"next\": \"retry\"}, {\"id\": \"C\", \"text\": \"四处寻找纸条\", \"outcome\": \"在不远处的石屋角落里找到了一张纸条，上面有一些奇怪的符号。\", \"result\": \"success\", \"next\": \"next_level\"}]}",
+ "level": {
+  "title": "神秘的古村落",
+  "scene": "你来到了一个充满古老气息的村庄，四周静悄悄的，只能听到远处传来的几声鸡鸣。路上散落着一些破旧的石板，似乎已经很久没有人走过。村口有一棵巨大的榕树，树干粗壮，枝叶繁茂。周围有几座老旧的石屋零星分布，偶尔还能看到几只鸡在悠闲地觅食。",
+  "goal": "收集所有散落的纸条，解开村庄的秘密",
+  "choices": [
+   {
+    "id": "A",
+    "text": "去榕树下看看",
+    "outcome": "发现了一张泛黄的纸条，上面写着一些古文，还有一些奇怪的符号。",
+    "result": "success",
+    "next": "next_level"
+   },
+   {
+    "id": "B",
+    "text": "去最近的石屋看看",
+    "outcome": "门紧闭，窗户紧闭，没有任何动静。",
+    "result": "partial",
+    "next": "retry"
+   },
+   {
+    "id": "C",
+    "text": "四处寻找纸条",
+    "outcome": "在不远处的石屋角落里找到了一张纸条，上面有一些奇怪的符号。",
+    "result": "success",
+    "next": "next_level"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 147,
+  "completion_tokens": 267,
+  "latency_s": 8.75
+ }
+}

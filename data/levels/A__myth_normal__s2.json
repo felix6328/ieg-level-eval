@@ -1,0 +1,53 @@
+{
+ "level_id": "A__myth_normal__s2",
+ "arm": "A",
+ "sample": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "prompt": "gen_v1",
+ "spec": {
+  "spec_id": "myth_normal",
+  "theme": "山海经神话",
+  "theme_hint": "异兽、上古神器、部落",
+  "difficulty": "普通",
+  "difficulty_def": "需要读懂场景线索：恰好1个最优解、1个部分成功（有代价）、1个失败但可重试。",
+  "persona": "探索收集党",
+  "persona_desc": "喜欢发现隐藏信息、彩蛋和世界观细节",
+  "persona_id": "explorer",
+  "adversarial": false,
+  "why": ""
+ },
+ "raw": "```json\n{\n  \"title\": \"迷雾山林\",\n  \"scene\": \"玩家来到一片被雾气笼罩的山林，林间隐约传来神秘的鸟鸣声。四周长满了古老的树木，树叶上似乎有露水闪烁。前方隐约可见一座被青藤缠绕的古桥，桥的对面似乎有光芒闪现。\",\n  \"goal\": \"玩家需要找到光芒的来源，收集能够证明自己探险成就的物品。\",\n  \"choices\": [\n    {\n      \"id\": \"A\",\n      \"text\": \"穿过古桥，向光源走去。\",\n      \"outcome\": \"桥面非常滑，玩家在半路上滑倒，但幸运地没有受伤，继续前行。\",\n      \"result\": \"partial\",\n      \"next\": \"next\"\n    },\n    {\n      \"id\": \"B\",\n      \"text\": \"先探索林间的密道，看看是否有其他线索。\",\n      \"outcome\": \"找到了一块刻有奇怪符文的石头，但没有找到光源的方向。\",\n      \"result\": \"partial\",\n      \"next\": \"next\"\n    },\n    {\n      \"id\": \"C\",\n      \"text\": \"等待雾气散去，再做决定。\",\n      \"outcome\": \"等待了一会儿，雾气依然没有消散，玩家决定继续前进。\",\n      \"result\": \"fail\",\n      \"next\": \"retry\"\n    }\n  ]\n}\n```",
+ "level": {
+  "title": "迷雾山林",
+  "scene": "玩家来到一片被雾气笼罩的山林，林间隐约传来神秘的鸟鸣声。四周长满了古老的树木，树叶上似乎有露水闪烁。前方隐约可见一座被青藤缠绕的古桥，桥的对面似乎有光芒闪现。",
+  "goal": "玩家需要找到光芒的来源，收集能够证明自己探险成就的物品。",
+  "choices": [
+   {
+    "id": "A",
+    "text": "穿过古桥，向光源走去。",
+    "outcome": "桥面非常滑，玩家在半路上滑倒，但幸运地没有受伤，继续前行。",
+    "result": "partial",
+    "next": "next"
+   },
+   {
+    "id": "B",
+    "text": "先探索林间的密道，看看是否有其他线索。",
+    "outcome": "找到了一块刻有奇怪符文的石头，但没有找到光源的方向。",
+    "result": "partial",
+    "next": "next"
+   },
+   {
+    "id": "C",
+    "text": "等待雾气散去，再做决定。",
+    "outcome": "等待了一会儿，雾气依然没有消散，玩家决定继续前进。",
+    "result": "fail",
+    "next": "retry"
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 148,
+  "completion_tokens": 293,
+  "latency_s": 9.3
+ }
+}
