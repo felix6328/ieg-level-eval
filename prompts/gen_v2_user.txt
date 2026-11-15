@@ -1,0 +1,13 @@
+主题：{theme}{theme_hint_line}
+难度：{difficulty}（{difficulty_def}）
+玩家画像：{persona}——{persona_desc}
+
+JSON 格式：
+{{"title": "关卡名",
+  "scene": "场景描述（含线索）",
+  "goal": "玩家本关目标（一句话）",
+  "clue": "本关关键线索在场景中的位置（给策划看，玩家不可见）",
+  "choices": [
+    {{"id": "A", "text": "选项（≤25字）", "outcome": "结果", "result": "success|partial|fail", "next": "next_level|retry|bad_end"}},
+    {{"id": "B", ...}}, {{"id": "C", ...}}
+  ]}}

@@ -1,0 +1,22 @@
+# 模型与价格配置。价格为 2026-11-15 抓取的硅基流动官网价目（元 / 百万 tokens），
+# 仅用于估算；以控制台账单为准。Qwen2.5 系列价目页未展开，按【假设】填写，见 COST.md。
+api_base: https://api.siliconflow.cn/v1
+env_file: .env   # 只读取 SILICONFLOW_API_KEY 一个变量；也可直接 export SILICONFLOW_API_KEY
+budget_cny: 8.6   # 第一轮 ¥2.55 + 优化轮上限约 ¥6
+
+arms:            # 生成侧三个对照组
+  A: {model: Qwen/Qwen2.5-7B-Instruct,  prompt: gen_v1, note: "小模型 + 朴素Prompt（基线）"}
+  B: {model: Qwen/Qwen2.5-7B-Instruct,  prompt: gen_v2, note: "小模型 + 结构化设计Prompt（调Prompt）"}
+  C: {model: Qwen/Qwen2.5-72B-Instruct, prompt: gen_v2, note: "大模型 + 结构化设计Prompt（换模型）"}
+
+judge:
+  model: deepseek-ai/DeepSeek-V3.2   # 与所有生成模型不同家族，规避自偏好
+  samples: 2                          # 两次采样，第二次打乱选项顺序（位置偏差控制）
+  temperature: 0.3
+
+price_cny_per_m:   # [input, output]
+  Qwen/Qwen2.5-7B-Instruct: [0.0, 0.0]
+  Qwen/Qwen2.5-72B-Instruct: [4.13, 4.13]
+  deepseek-ai/DeepSeek-V3.2: [4.0, 6.0]
+  zai-org/GLM-5.3-Flash: [0.8, 2.8]
+  tencent/Hunyuan-A13B-Instruct: [1.0, 4.0]   # 白天价（9–18 点），夜间 0.8/3.2；按高的算

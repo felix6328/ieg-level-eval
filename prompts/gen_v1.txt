@@ -1,0 +1,9 @@
+请生成一个文字冒险游戏关卡。
+主题：{theme}
+难度：{difficulty}
+玩家画像：{persona}
+
+要求：包含一段场景描述、3个选择，以及每个选择对应的结果。
+只输出 JSON，格式如下：
+{{"title": "关卡名", "scene": "场景描述", "goal": "玩家目标",
+  "choices": [{{"id": "A", "text": "选项", "outcome": "结果", "result": "success|partial|fail", "next": "next_level|retry|bad_end"}}, ...]}}
