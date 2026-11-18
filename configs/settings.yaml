@@ -1,5 +1,5 @@
 # 模型与价格配置。价格为 2026-11-15 抓取的硅基流动官网价目（元 / 百万 tokens），
-# 仅用于估算；以控制台账单为准。Qwen2.5 系列价目页未展开，按【假设】填写，见 COST.md。
+# 仅用于估算；以控制台账单为准。Qwen2.5 系列价目页未展开，按【假设】填写，见 docs/COST.md。
 api_base: https://api.siliconflow.cn/v1
 env_file: .env   # 只读取 SILICONFLOW_API_KEY 一个变量；也可直接 export SILICONFLOW_API_KEY
 budget_cny: 8.6   # 第一轮 ¥2.55 + 优化轮上限约 ¥6

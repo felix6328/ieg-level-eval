@@ -101,7 +101,7 @@ out.append(f"- **v1 逻辑维度天花板效应**：可解析关卡中 v1 逻辑
 esc = [r for r in J1.values() if r.get("escalate")]
 reasons = collections.Counter(e.split("（")[0] for r in J1.values() for e in r.get("escalate", []))
 R["escalation"] = dict(rate=len(esc) / len(J1), n=len(esc), reasons=dict(reasons))
-out.append(f"\n## 3. 自动 vs 人工：升级（escalation）率\n\n按 DESIGN.md §7 的升级规则，72 关中 **{len(esc)} 关（{len(esc)/len(J1):.0%}）** 会进入人工队列。触发原因计数：\n")
+out.append(f"\n## 3. 自动 vs 人工：升级（escalation）率\n\n按 docs/DESIGN.md §7 的升级规则，72 关中 **{len(esc)} 关（{len(esc)/len(J1):.0%}）** 会进入人工队列。触发原因计数：\n")
 for k, v in reasons.most_common(): out.append(f"- {k}：{v}")
 out.append(f"\n说明：对抗样例全部强制抽检（{reasons.get('对抗样例', 0)} 次计数；JSON 解析失败的关卡已被规则层直接拦截，不进评审也不进人工），所以这是偏高的上界。去掉这条规则后：")
 esc2 = [r for r in J1.values() if [e for e in r.get("escalate", []) if not e.startswith("对抗样例")]]

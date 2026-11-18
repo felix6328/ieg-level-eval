@@ -7,3 +7,9 @@ __pycache__/
 logs/cache/
 NOTES_PRIVATE.md
 .DS_Store
+
+# OS / editor
+*.egg-info/
+.idea/
+.vscode/
+.pytest_cache/

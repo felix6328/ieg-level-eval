@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 一键复跑（第二轮完整流程）。模型调用按请求内容哈希缓存在 logs/cache/（不入库）；
-# 有缓存时 0 花费；无缓存时整套约 ¥6–7（见 COST.md），超过 configs/settings.yaml 的 budget_cny 自动熔断。
+# 有缓存时 0 花费；无缓存时整套约 ¥6–7（见 docs/COST.md），超过 configs/settings.yaml 的 budget_cny 自动熔断。
 set -e
 cd "$(dirname "$0")/.."
 export PYTHONPATH=$PWD
