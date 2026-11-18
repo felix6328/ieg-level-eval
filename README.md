@@ -84,6 +84,21 @@ bash scripts/run_all.sh
 ```
 仓库保留了所有生成结果（`data/`）、评审结果（`eval/*.jsonl`）和用量记录（`logs/usage.jsonl`，只有 token 数和估算费用），所以不调用模型就能重算全部表格。请求缓存 `logs/cache/` 不入库。
 
+## 离线复跑（不调用模型、0 花费）
+
+已有评审结果都在 `eval/*.jsonl` 和 `data/levels/` 里，下面 5 个脚本只读这些文件，不需要 Key：
+
+```bash
+export PYTHONPATH=$PWD
+python scripts/compute_agreement.py && python scripts/analyze_v3.py && python scripts/report_rewrite.py \
+  && python scripts/report_retest.py && python scripts/report_triage.py
+```
+
+2026-11-17 复跑结果：`agreement / results_v3 / retest / triage` 与仓库记录逐字一致；`rewrite_loop.md` 只有成本与时延的末位差异（¥0.0110→¥0.0111，47s→48s），结论不变。
+重新生成关卡、重新评审需要 Key 和 `logs/cache/`（缓存不入库）。
+
+**注意：** 评审的校准偏移和「自动处理部分与参照一致 90%」都以 40 关**临时参照**为准，人工标注交回前，绝对合格率与一致率只能当方法演示；自动/人工分流比例（51% / 49%）同样用了校准后的评审，标注交回后需要重算；「换评审绝对合格率差很多、组间排序不变」是本项目最稳的结论。
+
 ## 人工标注（替换临时参照）
 1. 打开 `labels/labeling_sheet.html`（40 关，组别和模型已隐藏），按页内评分标准逐关打 1–5 分；也可以用 `labels/labeling_sheet_full.csv` 在表格软件里标。
 2. 导出 CSV，覆盖 `labels/human_labels.csv`。
@@ -110,3 +125,7 @@ viewer/      静态浏览器（双击打开）
 
 ## License
 MIT，见 [LICENSE](LICENSE)。
+
+## 补充调研（2026-11-17）
+
+公开论文、GDC 调查和行业报道中的 13 条样本，用来检验「同一个 AI 评审重跑会翻转判断」等关键假设。见 [docs/research/调研报告.md](docs/research/调研报告.md)。
