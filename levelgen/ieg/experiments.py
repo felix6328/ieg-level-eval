@@ -81,8 +81,8 @@ class Experiments:
             experiment["runs"] = [dict(row) for row in db.execute("""
                 SELECT g.id,g.model_config_id,g.task_id,g.sample,g.status,g.error,g.started_at,g.completed_at,
                        o.id output_id,o.source_id,o.origin
-                FROM generation_runs g LEFT JOIN outputs o ON o.id=(SELECT id FROM outputs
-                  WHERE run_id=g.id ORDER BY created_at DESC LIMIT 1)
+                FROM generation_runs g LEFT JOIN outputs o ON o.attempt_id=(SELECT id FROM attempts
+                  WHERE run_id=g.id ORDER BY number DESC LIMIT 1)
                 WHERE g.experiment_id=? AND json_extract(g.config,'$.rewrite_for') IS NULL
                 ORDER BY g.model_config_id,g.task_id,g.sample""", (ident,))]
             return experiment
@@ -123,10 +123,15 @@ class Experiments:
 
     def recover(self):
         with self.store.connect(True) as db:
-            db.execute("""UPDATE attempts SET completed_at=?,error='执行中断，远端状态未知'
-                          WHERE completed_at IS NULL""", (now(),))
-            db.execute("""UPDATE generation_runs SET status=CASE WHEN json_extract(config,'$.mode')='REAL'
-                          THEN 'FAILED' ELSE 'PENDING' END, error='服务重启，真实费用可能未知'
+            stamp = now()
+            db.execute("""UPDATE attempts SET completed_at=?,error='执行中断，远端状态未知',
+                          response=CASE WHEN json_extract(request,'$.mode')='REAL'
+                          THEN '{"remote_status":"UNKNOWN"}' ELSE NULL END
+                          WHERE completed_at IS NULL""", (stamp,))
+            db.execute("""UPDATE generation_runs SET status='FAILED',completed_at=?,
+                          error='服务重启，真实费用可能未知'
+                          WHERE status='RUNNING' AND json_extract(config,'$.mode')='REAL'""", (stamp,))
+            db.execute("""UPDATE generation_runs SET status='PENDING',started_at=NULL,error=NULL
                           WHERE status='RUNNING'""")
 
     def replay(self, run, spec, config):
@@ -229,6 +234,19 @@ class Worker:
             if self.stop.is_set():
                 return
             self.experiments.recover()
+            if self.after:
+                with self.experiments.store.connect() as db:
+                    remaining = [r[0] for r in db.execute("""
+                      SELECT id FROM outputs o WHERE NOT EXISTS
+                        (SELECT 1 FROM triage_decisions WHERE output_id=o.id) ORDER BY created_at
+                    """)]
+                for output in remaining:
+                    if self.stop.is_set():
+                        return
+                    try:
+                        self.after(output)
+                    except Exception:
+                        logger.exception("IEG could not recover evaluation %s", output)
             while not self.stop.is_set():
                 try:
                     if not self.one():

@@ -1,8 +1,6 @@
 """Bad Case trace, Golden Case lifecycle, and one-shot rewrite."""
-from collections import defaultdict
-
-from .evaluation import DIMS
-from .store import ROOT, Invalid, dump, get, jsonl, load, now, uid
+from .evaluation import rules
+from .store import ROOT, Invalid, Missing, dump, get, jsonl, load, now, uid
 
 ROOT_CAUSES = ("Prompt Constraint Missing", "Model Capability Limitation", "Context Loss", "State Inconsistency",
                "Schema Error", "Game Logic Error", "Evaluation Error", "Unknown")
@@ -90,7 +88,13 @@ class Governance:
             db.execute("INSERT INTO bad_cases VALUES(?,?,?,?,?,?,?,?,?,?,?)",
                        (ident, output, ev["id"], row["experiment_id"], hint, cause, confirmed,
                         reviewer.strip() or None, note.strip(), "OPEN", now()))
+            self.bad_event(db, ident)
             return self.read_bad(db, ident)
+
+    @staticmethod
+    def bad_event(db, ident):
+        row = get(db, "SELECT root_cause,confirmed,reviewer,note,state FROM bad_cases WHERE id=?", (ident,))
+        db.execute("INSERT INTO bad_case_events VALUES(?,?,?,?)", (uid(),ident,dump(dict(row)),now()))
 
     @staticmethod
     def read_bad(db, ident):
@@ -105,11 +109,14 @@ class Governance:
             self.read_bad(db, ident)
             db.execute("UPDATE bad_cases SET root_cause=?,note=?,reviewer=?,confirmed=?,state=? WHERE id=?",
                        (cause,note,reviewer,cause!="Unknown",state,ident))
+            self.bad_event(db, ident)
             return self.read_bad(db, ident)
 
     def list(self):
         with self.store.connect() as db:
-            return {"bad_cases":[dict(r) for r in db.execute("SELECT * FROM bad_cases ORDER BY created_at DESC")],
+            return {"bad_cases":[{**dict(r), "events":[load(x[0]) for x in db.execute(
+                        "SELECT record FROM bad_case_events WHERE bad_case_id=? ORDER BY created_at", (r["id"],)
+                    )]} for r in db.execute("SELECT * FROM bad_cases ORDER BY created_at DESC")],
                     "golden_cases":[self.golden(db, r["id"]) for r in db.execute("SELECT * FROM golden_cases ORDER BY created_at DESC")]}
 
     def create_golden(self, bad_id, title, task, assertions):
@@ -145,9 +152,10 @@ class Governance:
             validation = None
             if action == "validate":
                 bad = self.read_bad(db, case["bad_case_id"])
-                ev = self.evaluations.detail(bad["output_id"])
-                raw = get(db,"SELECT raw FROM outputs WHERE id=?", (bad["output_id"],))[0]
-                validation = evaluate_assertions(case["assertions"],ev,raw)
+                source = get(db,"SELECT raw,parsed FROM outputs WHERE id=?", (bad["output_id"],))
+                findings = rules(load(source["parsed"]) if source["parsed"] else None, case["spec"])
+                baseline = {"hard_pass":not any(r["status"]=="FAIL" for r in findings),"rules":findings}
+                validation = evaluate_assertions(case["assertions"],baseline,source["raw"])
             db.execute("UPDATE golden_cases SET state=? WHERE id=?", (target,ident))
             version = None
             if action in {"publish","deprecate"}:
@@ -226,7 +234,6 @@ class Governance:
         if not after:
             result["quality"] = "FAILED" if run["status"]=="FAILED" else "PENDING"
             return result
-        from .store import Missing
         try:
             ev = self.evaluations.detail(after["output_id"])
         except Missing:

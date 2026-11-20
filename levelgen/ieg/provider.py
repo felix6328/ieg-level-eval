@@ -37,9 +37,14 @@ def render(spec, pieces):
 
 def config_price(model):
     configured = os.environ.get("LEVEL_EVAL_PRICES_JSON")
-    prices = load(configured) if configured else {}
+    try:
+        prices = load(configured) if configured else {}
+        if not isinstance(prices, dict):
+            raise ValueError
+    except ValueError as exc:
+        raise Invalid("LEVEL_EVAL_PRICES_JSON 必须是模型到价格数组的 JSON 对象") from exc
     pair = prices.get(model, BUILTIN_PRICE_CNY_M.get(model))
-    if not pair or len(pair) != 2 or any(type(x) not in (int, float) or not 0 <= x <= 1e6 for x in pair):
+    if not isinstance(pair,(list,tuple)) or len(pair) != 2 or any(type(x) not in (int, float) or not 0 <= x <= 1e6 for x in pair):
         raise Invalid(f"缺少可用费用估价 {model}，请设置 LEVEL_EVAL_PRICES_JSON")
     return pair
 

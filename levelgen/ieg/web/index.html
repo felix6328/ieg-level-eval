@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>LevelEval 2.0 · 游戏内容评测工作台</title>
+  <link rel="stylesheet" href="/static/ieg/style.css">
+  <script type="module" src="/static/ieg/app.js"></script>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <a href="#overview" class="brand"><span class="mark">L</span><span>LevelEval<small>IEG · 评测工作台</small></span></a>
+      <nav aria-label="工作台导航">
+        <a href="#overview">总览</a>
+        <a href="#experiments">实验中心</a>
+        <a href="#datasets">数据集</a>
+        <a href="#calibration">Judge 校准</a>
+        <a href="#triage">分流与审核</a>
+        <a href="#governance">Bad / Golden Case</a>
+        <a href="#reports">回归与选型报告</a>
+      </nav>
+      <div class="local"><i></i>本机 IEG 工作区</div>
+    </aside>
+    <main>
+      <header class="top"><span id="breadcrumb">LevelEval / 总览</span><a href="#experiments" class="button primary">新建实验</a></header>
+      <div id="notice" class="notice" hidden role="alert"></div>
+      <div class="workspace" id="workspace" aria-live="polite">正在读取工作区…</div>
+    </main>
+  </div>
+</body>
+</html>

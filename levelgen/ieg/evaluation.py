@@ -203,10 +203,22 @@ class Evaluations:
         if source["origin"] == "REAL" and choices and hard_pass:
             budget = load(source["settings"]).get("judge_budget_cny", 0)
             remaining = budget - sum(row["cost"] or 0 for row in previous_cost)
-            if any(row["cost"] is None for row in previous_cost):
+            with self.store.connect(True) as db:
+                uncertain = db.execute("""SELECT 1 FROM online_evaluation_guard guard
+                    JOIN outputs o ON o.id=guard.output_id JOIN generation_runs g ON g.id=o.run_id
+                    WHERE g.experiment_id=? AND NOT EXISTS
+                        (SELECT 1 FROM evaluations WHERE output_id=o.id) LIMIT 1
+                """, (source["experiment_id"],)).fetchone()
+                if not uncertain:
+                    db.execute("INSERT INTO online_evaluation_guard VALUES(?,?)", (output_id,now()))
+            if uncertain or any(row["cost"] is None for row in previous_cost):
                 remaining = -1
             for index, model in enumerate(choices):
-                result = real_judge(model, spec, level, remaining)
+                if remaining < 0:
+                    result = {"model":model, "source":"REAL_JUDGE", "status":"NOT_RUN", "scores":None,
+                              "cost_estimate":None, "error":"此前调用费用或执行状态未知，已暂停"}
+                else:
+                    result = real_judge(model, spec, level, remaining)
                 remaining = (remaining - result["cost_estimate"]) if result["cost_estimate"] is not None else -1
                 judges.append({"id": f"real-{index+1}", **result})
         ident = uid()

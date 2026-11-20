@@ -5,10 +5,10 @@ from pathlib import Path
 from typing import Literal
 from urllib.parse import urlsplit
 import os
-import json
 
 from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse
+from fastapi.responses import FileResponse, JSONResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from . import provider
@@ -293,3 +293,11 @@ def decision(body: DecisionInput):
 @app.post("/api/reports/regression", status_code=201)
 def regression(body: RegressionInput):
     return services()[5].regression(body.baseline,body.candidate)
+
+WEB = Path(__file__).with_name("web")
+app.mount("/static/ieg", StaticFiles(directory=WEB), name="ieg-static")
+
+
+@app.get("/", include_in_schema=False)
+def homepage():
+    return FileResponse(WEB / "index.html")
