@@ -15,6 +15,7 @@ from . import provider
 from .evaluation import Evaluations
 from .experiments import Experiments, Worker
 from .governance import Governance
+from .reports import Reports
 from .reviews import Reviews
 from .store import ROOT, Invalid, Missing, Store, load
 
@@ -29,12 +30,13 @@ def services():
     evaluation = Evaluations(store)
     experiments = Experiments(store)
     reviews = Reviews(store,evaluation)
-    return store, experiments, evaluation, reviews, Governance(store,experiments,evaluation,reviews)
+    governance = Governance(store,experiments,evaluation,reviews)
+    return store, experiments, evaluation, reviews, governance, Reports(store,governance)
 
 
 @asynccontextmanager
 async def lifespan(_app):
-    _, experiments, _, reviews, _ = services()
+    _, experiments, _, reviews, _, _ = services()
     with Worker(experiments, after=reviews.refresh).background():
         yield
 
@@ -255,3 +257,39 @@ def get_rewrite(output_id: str):
 @app.post("/api/outputs/{output_id}/rewrite", status_code=202)
 def rewrite(output_id: str,body: RewriteInput):
     return services()[4].rewrite(output_id,body.reason)
+
+
+class DecisionInput(BaseModel):
+    experiments: list[str] = Field(min_length=1,max_length=12)
+    hard_floor: float = Field(default=.8,ge=0,le=1)
+    min_evaluation: int = Field(default=12,ge=1,le=1000)
+
+
+class RegressionInput(BaseModel):
+    baseline: str
+    candidate: str
+
+
+@app.get("/api/historical")
+def historical():
+    return services()[5].historical()
+
+
+@app.get("/api/reports")
+def reports():
+    return services()[5].list()
+
+
+@app.get("/api/reports/{ident}")
+def report(ident: str):
+    return services()[5].detail(ident)
+
+
+@app.post("/api/reports/decision", status_code=201)
+def decision(body: DecisionInput):
+    return services()[5].decision(body.experiments,body.hard_floor,body.min_evaluation)
+
+
+@app.post("/api/reports/regression", status_code=201)
+def regression(body: RegressionInput):
+    return services()[5].regression(body.baseline,body.candidate)

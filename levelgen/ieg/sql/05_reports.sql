@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS reports (
+    id TEXT PRIMARY KEY, kind TEXT NOT NULL CHECK(kind IN ('DECISION','REGRESSION')),
+    scope TEXT NOT NULL, payload TEXT NOT NULL, created_at TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS historical_reports (
+    id TEXT PRIMARY KEY, payload TEXT NOT NULL, source TEXT NOT NULL
+);
