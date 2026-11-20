@@ -13,3 +13,6 @@ NOTES_PRIVATE.md
 .idea/
 .vscode/
 .pytest_cache/
+
+# IEG-only runtime
+data/ieg/
