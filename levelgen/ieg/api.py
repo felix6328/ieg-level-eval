@@ -14,6 +14,7 @@ from pydantic import BaseModel, Field
 from . import provider
 from .evaluation import Evaluations
 from .experiments import Experiments, Worker
+from .reviews import Reviews
 from .store import ROOT, Invalid, Missing, Store, load
 
 
@@ -24,13 +25,14 @@ def services():
     if db.is_relative_to(legacy) or (db.is_relative_to(ROOT) and not db.is_relative_to(ROOT / "data/ieg")):
         raise Invalid("IEG 数据库需放在独立存储目录")
     store = Store(db)
-    return store, Experiments(store), Evaluations(store)
+    evaluation = Evaluations(store)
+    return store, Experiments(store), evaluation, Reviews(store, evaluation)
 
 
 @asynccontextmanager
 async def lifespan(_app):
-    _, experiments, evaluation = services()
-    with Worker(experiments, after=evaluation.evaluate).background():
+    _, experiments, _, reviews = services()
+    with Worker(experiments, after=reviews.refresh).background():
         yield
 
 
@@ -64,6 +66,13 @@ class DatasetInput(BaseModel):
     content: str = Field(min_length=2, max_length=3_000_000)
 
 
+class TriagePolicy(BaseModel):
+    min_judges: int = Field(default=2, ge=2, le=3)
+    min_score: int = Field(default=3, ge=1, le=5)
+    min_confidence: float = Field(default=.7, ge=0, le=1)
+    max_dimension_spread: int = Field(default=1, ge=0, le=4)
+
+
 class ExperimentInput(BaseModel):
     name: str = Field(min_length=1, max_length=120)
     dataset_version: str = "wxg24-v1"
@@ -76,6 +85,7 @@ class ExperimentInput(BaseModel):
     max_tokens: int | None = Field(default=None, ge=128, le=12000)
     model_override: str | None = Field(default=None, max_length=180)
     prompt_override: Literal["gen_v1", "gen_v2"] | None = None
+    triage_policy: TriagePolicy = Field(default_factory=TriagePolicy)
     judge_models: list[str] = Field(default_factory=list, max_length=3)
     judge_budget_cny: float = Field(default=0, ge=0, le=100, allow_inf_nan=False)
     budget_cny: float = Field(default=0, ge=0, le=100, allow_inf_nan=False)
@@ -141,9 +151,41 @@ def evaluation(output_id: str):
 
 @app.post("/api/outputs/{output_id}/evaluation")
 def rerun_evaluation(output_id: str):
-    return services()[2].evaluate(output_id, force=True)
+    triage = services()[3].refresh(output_id, recalibrate=True)
+    return {"evaluation": services()[2].detail(output_id), "triage": triage}
 
 
 @app.get("/api/calibration")
 def calibration():
-    return services()[2].calibration()
+    return {**services()[2].calibration(), "human": services()[3].human_calibration()}
+
+
+class HumanInput(BaseModel):
+    evaluation_id: str
+    source: Literal["HUMAN", "MODEL_ASSISTED"]
+    reviewer: str = Field(min_length=1, max_length=100)
+    scores: dict[str, int]
+    decision: Literal["ACCEPT", "REJECT"]
+    tags: list[str] = Field(default_factory=list, max_length=16)
+    note: str = Field(min_length=1, max_length=3000)
+    independent: bool = False
+
+
+@app.get("/api/triage")
+def triage(experiment_id: str | None = None):
+    return services()[3].queue(experiment_id)
+
+
+@app.get("/api/outputs/{output_id}/reviews")
+def review_history(output_id: str):
+    return services()[3].history(output_id)
+
+
+@app.post("/api/outputs/{output_id}/triage")
+def update_triage(output_id: str, body: TriagePolicy):
+    return services()[3].refresh(output_id, policy=body.model_dump())
+
+
+@app.post("/api/outputs/{output_id}/reviews", status_code=201)
+def review(output_id: str, body: HumanInput):
+    return services()[3].review(output_id, body.evaluation_id, body.model_dump())
