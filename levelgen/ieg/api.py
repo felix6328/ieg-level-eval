@@ -12,6 +12,7 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 
 from . import provider
+from .evaluation import Evaluations
 from .experiments import Experiments, Worker
 from .store import ROOT, Invalid, Missing, Store, load
 
@@ -23,13 +24,13 @@ def services():
     if db.is_relative_to(legacy) or (db.is_relative_to(ROOT) and not db.is_relative_to(ROOT / "data/ieg")):
         raise Invalid("IEG 数据库需放在独立存储目录")
     store = Store(db)
-    return store, Experiments(store)
+    return store, Experiments(store), Evaluations(store)
 
 
 @asynccontextmanager
 async def lifespan(_app):
-    _, experiments = services()
-    with Worker(experiments).background():
+    _, experiments, evaluation = services()
+    with Worker(experiments, after=evaluation.evaluate).background():
         yield
 
 
@@ -75,6 +76,8 @@ class ExperimentInput(BaseModel):
     max_tokens: int | None = Field(default=None, ge=128, le=12000)
     model_override: str | None = Field(default=None, max_length=180)
     prompt_override: Literal["gen_v1", "gen_v2"] | None = None
+    judge_models: list[str] = Field(default_factory=list, max_length=3)
+    judge_budget_cny: float = Field(default=0, ge=0, le=100, allow_inf_nan=False)
     budget_cny: float = Field(default=0, ge=0, le=100, allow_inf_nan=False)
 
 
@@ -129,3 +132,18 @@ def run(ident: str):
 @app.post("/api/runs/{ident}/retry", status_code=202)
 def retry(ident: str):
     return services()[1].retry(ident)
+
+
+@app.get("/api/outputs/{output_id}/evaluation")
+def evaluation(output_id: str):
+    return services()[2].detail(output_id)
+
+
+@app.post("/api/outputs/{output_id}/evaluation")
+def rerun_evaluation(output_id: str):
+    return services()[2].evaluate(output_id, force=True)
+
+
+@app.get("/api/calibration")
+def calibration():
+    return services()[2].calibration()
