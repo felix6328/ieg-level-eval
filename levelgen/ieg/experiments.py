@@ -31,6 +31,8 @@ class Experiments:
                 tasks = [task for task in tasks if task["id"] in chosen]
                 if len(tasks) != len(chosen):
                     raise Invalid("所选任务不在此数据版本")
+            if not tasks:
+                raise Invalid("数据集版本没有可运行的任务")
             model_ids = list(dict.fromkeys(config["models"]))
             stamp, ident = now(), uid()
             if not config["name"].strip() or not model_ids:
@@ -129,6 +131,11 @@ class Experiments:
 
     def replay(self, run, spec, config):
         with self.store.connect() as db:
+            if config.get("replay_rewrite_id"):
+                archive = get(db, "SELECT * FROM archive WHERE id=?", (config["replay_rewrite_id"],))
+                record = load(archive["record"])
+                return provider.Reply(record["raw"], {"archive":record,"source":archive["source"]},
+                                      record["usage"]["latency_s"],0.0), archive["id"],record["level"]
             archive = db.execute("SELECT * FROM archive WHERE arm=? AND task_id=? AND sample=?",
                                  (config["id"], spec.get("replay_spec_id", spec["spec_id"]), run["sample"])).fetchone()
         if archive is None:
@@ -141,7 +148,7 @@ class Experiments:
 
     def execute(self, run):
         spec, config = load(run["spec"]), load(run["config"])
-        messages = provider.render(spec, config["pieces"])
+        messages = config.get("rewrite_messages") or provider.render(spec, config["pieces"])
         body = {"model": config["model"], "messages": messages, "max_tokens": config["max_tokens"],
                 "temperature": config["temperature"], "seed": config["seed"], "stream": False}
         if config["mode"] == "REPLAY":

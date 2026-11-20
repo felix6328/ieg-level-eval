@@ -14,6 +14,7 @@ from pydantic import BaseModel, Field
 from . import provider
 from .evaluation import Evaluations
 from .experiments import Experiments, Worker
+from .governance import Governance
 from .reviews import Reviews
 from .store import ROOT, Invalid, Missing, Store, load
 
@@ -26,12 +27,14 @@ def services():
         raise Invalid("IEG 数据库需放在独立存储目录")
     store = Store(db)
     evaluation = Evaluations(store)
-    return store, Experiments(store), evaluation, Reviews(store, evaluation)
+    experiments = Experiments(store)
+    reviews = Reviews(store,evaluation)
+    return store, experiments, evaluation, reviews, Governance(store,experiments,evaluation,reviews)
 
 
 @asynccontextmanager
 async def lifespan(_app):
-    _, experiments, _, reviews = services()
+    _, experiments, _, reviews, _ = services()
     with Worker(experiments, after=reviews.refresh).background():
         yield
 
@@ -189,3 +192,66 @@ def update_triage(output_id: str, body: TriagePolicy):
 @app.post("/api/outputs/{output_id}/reviews", status_code=201)
 def review(output_id: str, body: HumanInput):
     return services()[3].review(output_id, body.evaluation_id, body.model_dump())
+
+
+class BadInput(BaseModel):
+    root_cause: str = "Unknown"
+    reviewer: str = Field(default="",max_length=120)
+    note: str = Field(default="",max_length=3000)
+    state: str = "OPEN"
+
+
+class GoldenInput(BaseModel):
+    title: str = Field(min_length=1,max_length=120)
+    task: dict = Field(default_factory=dict)
+    assertions: list[dict] = Field(min_length=1,max_length=20)
+
+
+class GoldenAction(BaseModel):
+    action: Literal["validate","approve","reject","publish","deprecate"]
+    reviewer: str = Field(default="",max_length=120)
+    reason: str = Field(default="",max_length=3000)
+
+
+class RewriteInput(BaseModel):
+    reason: str = Field(min_length=1,max_length=3000)
+
+
+@app.get("/api/outputs/{output_id}/trace")
+def output_trace(output_id: str):
+    return services()[4].trace(output_id)
+
+
+@app.get("/api/governance")
+def governance():
+    return services()[4].list()
+
+
+@app.post("/api/outputs/{output_id}/bad-case", status_code=201)
+def bad_case(output_id: str,body: BadInput):
+    return services()[4].create_bad(output_id,body.root_cause,body.note,body.reviewer)
+
+
+@app.patch("/api/bad-cases/{ident}")
+def edit_bad_case(ident: str, body: BadInput):
+    return services()[4].update_bad(ident,cause=body.root_cause,note=body.note,reviewer=body.reviewer,state=body.state)
+
+
+@app.post("/api/bad-cases/{ident}/golden", status_code=201)
+def new_golden(ident: str,body: GoldenInput):
+    return services()[4].create_golden(ident,body.title,body.task,body.assertions)
+
+
+@app.post("/api/golden/{ident}/action")
+def golden_action(ident: str,body: GoldenAction):
+    return services()[4].golden_action(ident,body.action,body.reviewer,body.reason)
+
+
+@app.get("/api/outputs/{output_id}/rewrite")
+def get_rewrite(output_id: str):
+    return services()[4].rewrite_detail(output_id)
+
+
+@app.post("/api/outputs/{output_id}/rewrite", status_code=202)
+def rewrite(output_id: str,body: RewriteInput):
+    return services()[4].rewrite(output_id,body.reason)
